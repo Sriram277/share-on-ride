@@ -1,0 +1,38 @@
+<div class="cart-load">
+<!-- Login Page -->
+<section class="login-page" ng-hide="loadingProgress">
+    <div class="container">
+        <div class="login-main text-center">
+            <figure>
+                <a href="#"><img src="assets/images/share-ride1.jpg" alt="" /></a>
+            </figure>
+            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
+            <div class="log-form  text-left">
+              <h4 ng-hide="signupon"><span>Login</span></h4>
+                <form name="loginForm">
+                    <div class="login" ng-hide="signupon">
+                        <p class="LoginErrorMessage">{{loginError}}</p>
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" ng-model="dataLogin.email" name="loginEmail" id="email" placeholder="Enter Email" required>
+
+                            <span ng-show="loginForm.loginEmail.$dirty && loginForm.loginEmail.$invalid">
+                              <span style="color:red" ng-show="loginForm.loginEmail.$error.pattern"><b>Invalid email address.</b></span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" ng-model="dataLogin.password" id="pwd" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-orange" ng-click="loginWork(dataLogin)" ng-disabled="loginForm.$invalid">Login</button>
+                        <button class="btn btn-default btn-clear" ng-click="loginClear()">Clear</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+            <span><a ui-sref="register">Create an account?</a> / <a ui-sref="forgotPass">Forgot password?</a></span>
+
+        </div>
+    </div>
+</section>
+ <div class="loading-bar" ng-show="loadingProgress" aria-hidden="true" style=""></div>
+ </div>

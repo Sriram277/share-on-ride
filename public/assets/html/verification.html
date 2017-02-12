@@ -1,0 +1,40 @@
+<!-- <center>
+    <div>
+        <p ng-show='temp1' style="font-size:1em;">your Email address Verified</p>
+        <p ng-hide='temp1'>Already Verified</p>
+        </br>
+        <div height=30px; width=70px; style="color:white; font-size:3em"><a href="#">Click Here to Login</a></div>
+        <div>
+</center> -->
+<!-- Login Page -->
+<section class="login-page" ng-show="temp1">
+    <div class="container">
+        <div class="login-main text-center">
+            <figure>
+                <a href="#"><img src="assets/images/logo.png" alt="" /></a>
+            </figure>
+            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
+            <div class="log-form label-box  text-left">
+              <div class="reset-label">
+                <h3>Thanks for registering with us</h3>
+              </div>
+                <form name="myform">
+                    <div class="error">
+                        <span></span>
+                    </div>
+                    <div class="login-verify">
+                        <div class="form-group">
+                          <p ng-show='temp1'>Your Email address Verified</p>
+                          <p ng-hide='temp1'>Already Verified</p>
+                        </div>
+                          <div class="btn-resend">
+                        <button class="btn btn-orange" ng-click="gotoLogin()">Login Here</button>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                </form>
+                </br>
+            </div>
+        </div>
+    </div>
+</section>

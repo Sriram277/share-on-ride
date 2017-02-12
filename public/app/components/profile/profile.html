@@ -1,0 +1,160 @@
+﻿<div class="profile">
+  <div class="col-sm-3">
+      <div class="userProfile extendFullCol text-center">
+          <figure><img class="img-circle" src="assets/images/usr-pic.jpg" /></figure>
+          <h2>Praveen Kumar</h2>
+          <p class="placeNew">Delhi, India.</p>
+          <p class="follows"><span>640 Following</span><span>1250 Followers</span></p>
+          <div class="sub-buttons">
+              <a class="wc-btn btn-orange-round" href="">Following</a>
+              <a class="wc-btn btn-orange-round" href="">Message</a>
+          </div>
+          <div class="topTabBox ng-scope">
+              <ul>
+                  <li><a ui-sref="main.profile" href="#/main/profile" ui-sref-active="active">Timeline</a></li>
+                  <li><a ui-sref="main.about" ui-sref-active="active" href="#/main/about" class="active">About</a></li>
+                  <li><a href="#">Friends (250)</a></li>
+              </ul>
+              <div class="clearfix"></div>
+          </div>
+      </div>
+
+
+      <div class="friendBlock extendFullCol">
+          <h2>Friends <span>(250)</span></h2>
+          <div class="friendList">
+              <div class="friend-mini" ng-repeat="friend in Friends">
+                  <figure>
+                      <img src="assets/images/user-friend.png" class="img-circle" alt="" />
+                  </figure>
+                  <div class="detail">
+                      <h3>Vinay Kumar</h3>
+                      <p>New Delhi, India</p>
+                  </div>
+              </div>
+
+              <div class="endBlock">
+                  <a href="#">View All</a>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  <div class="col-sm-9 extendLeftCol">
+      <!--<div class="createQuickPost">
+          <h2><i class="demo-icon icon-plus"></i> Create a quick post <input checked data-toggle="toggle" data-on="psuedo" data-off="enable" type="checkbox"></h2>
+          <div class="posttype">
+              <textarea name="name"></textarea>
+          </div>
+      </div>-->
+      <div class="posts-block">
+
+        <div class="post">
+            <div class="topHead">
+                <div class="leftcol-1">
+                    <div class="friend-mini">
+                        <figure>
+                            <img src="assets/images/user-friend.png" class="img-circle" alt="" />
+                        </figure>
+                        <div class="detail">
+                            <h3 ng-bind="post.createdBy"></h3>
+                            <p>New Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-rem">
+                    <button type="button" class="demo-icon icon-ellipsis transBtn" name="button"></button>
+                </div>
+            </div>
+            <figure class="postImage">
+                <img src="assets/images/main-image.png" alt="" />
+            </figure>
+            <div class="midBody">
+                <h3 ng-bind="post.postName"></h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,quis nostrud exerci tation
+                    ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="footBody">
+              <ul>
+                <li class="">Like(1)</li>
+                <li>Comments(1.5k)</li>
+                <li>Share(1.2k)</li>
+              </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="commentBlock">
+              <figure><img src="assets/images/user-friend.png" class="" alt="" /></figure>
+              <div class="commentText">
+                <input type="text" name="name" value="">
+              </div>
+              <hr>
+              <div class="comments" ng-hide="noComments">
+                <div class="comment">
+                  <figure><img src="assets/images/user-friend.png" class="" alt="" /></figure>
+                  <div class="commentRaw">
+                    <p><span>User Name:</span> First Comment</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+          <div class="post" ng-repeat="post in PostValues">
+              <div class="topHead">
+                  <div class="leftcol-1">
+                      <div class="friend-mini">
+                          <figure>
+                              <img src="assets/images/user-friend.png" class="img-circle" alt="" />
+                          </figure>
+                          <div class="detail">
+                              <h3 ng-bind="post.createdBy"></h3>
+                              <p>New Delhi, India</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-rem">
+                      <button type="button" class="demo-icon icon-ellipsis transBtn" name="button"></button>
+                  </div>
+              </div>
+              <figure class="postImage">
+                  <img src="assets/images/main-image.png" alt="" />
+              </figure>
+              <div class="midBody">
+                  <h3 ng-bind="post.postName"></h3>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                      laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,quis nostrud exerci tation
+                      ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                  </p>
+              </div>
+              <div class="footBody">
+                <ul>
+                  <li class="">Like(1)</li>
+                  <li>Comments(1.5k)</li>
+                  <li>Share(1.2k)</li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+              <div class="commentBlock">
+                <figure><img src="assets/images/user-friend.png" class="" alt="" /></figure>
+                <div class="commentText">
+                  <input type="text" name="name" value="">
+                </div>
+                <hr>
+                <div class="comments" ng-hide="noComments">
+                  <div class="comment">
+                    <figure><img src="assets/images/user-friend.png" class="" alt="" /></figure>
+                    <div class="commentRaw">
+                      <p><span>User Name:</span> First Comment</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+﻿</div>

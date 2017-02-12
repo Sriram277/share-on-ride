@@ -1,0 +1,21 @@
+
+
+    <div class="prd-discount-marks spreadPercentages">
+        <ul>
+            <li style="margin-left:0; left:0px;position:absolute;">0%
+                <li ng-if="saleDiscount.sale_discount_percentage != 0" style="margin-left:-15px; left:{{saleStyle($index+1)}}%; position:absolute;top:0px;" ng-repeat="saleDiscount in saleDiscount">{{saleDiscount.sale_discount_percentage}}%</li>
+        </ul>
+    </div>
+
+    <div class="prd-salebar">
+        <div class="bar-status" style="width:{{barLength()}}%" ng-if ="soldQty>0"><span class="soldNumber">{{soldQty}}</span></div>
+        <ul>
+          <li class="markPoints radius-sm" style="margin-left:-15px; left:{{saleStyle($index+1)}}%; position:absolute;top:0px;" ng-repeat="saleDiscount in saleDiscount"><span>0</span></li>
+        </ul>
+
+    </div>
+    <div class="prd-discount-marks spreadPercentages">
+        <ul>
+            <li style="margin-left:-15px; left:{{saleStyle($index+1)}}%; position:absolute;top:0px;" ng-repeat="saleDiscount in saleDiscount">{{saleDiscount.sale_qty}}</li>
+        </ul>
+    </div>

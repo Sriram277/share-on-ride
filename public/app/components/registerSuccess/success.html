@@ -1,0 +1,65 @@
+﻿    <!-- Login Page -->
+<section class="login-page">
+    <div class="container">
+        <div class="login-main text-center">
+            <figure><a href="#"><img src="assets/images/logo.png" alt="" /></a></figure>
+            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
+            <div class="log-form  text-left">
+                <form action="#" method="">
+                    <h4 ng-hide="signupon"><span>Login</span> / Signup</h4>
+                    <h4 ng-show="signupon">Login / <span>Signup</span></h4>
+
+                    <div class="login" ng-hide="signupon">
+                      <div class="form-group">
+                          <input type="email" class="form-control" ng-model="dataLogin.email" id="email" placeholder="Enter your Email, User id or Phone">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" class="form-control" ng-model="dataLogin.password" id="pwd" placeholder="Password">
+                      </div>
+                      <button type="submit" class="btn btn-default" ng-click="loginWork(dataLogin)">Login</button>
+                    </div>
+                  </form>
+
+                    <form>
+                    <div class="signup" ng-show="signupon">
+                      <div class="form-group">
+                          <input type="text" class="form-control" ng-model="dataRegister.firstName" id="email" placeholder="First name">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" ng-model="dataRegister.lastName" id="pwd" placeholder="Last Name">
+                      </div>
+                      <div class="form-group">
+                          <input type="email" class="form-control" ng-model="dataRegister.email" id="pwd" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" class="form-control" ng-model="dataRegister.password" id="pwd" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" class="form-control" placeholder="Confirm Password">
+                      </div>
+                      <div class="form-group">
+                          <input type="number" class="form-control" ng-model="dataRegister.mobile" id="pwd" placeholder="Mobile Number">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" ng-model="dataRegister.dob" id="pwd" placeholder="Date of Birth">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" ng-model="dataRegister.gender" id="pwd" placeholder="Gender">
+                      </div>
+
+                      <button type="submit" class="btn btn-default" ng-click="registerWork(dataRegister)">Register</button>
+                      <div class="clearfix"></div>
+                    </div>
+
+                </form>
+
+                <div class="error">
+                  <span>{{errorText}}</span>
+                </div>
+
+            </div>
+            <span ng-hide="signupon">Don’t have an <a ng-click="accountCreate(signupon)">account?</a>  /  Forgot <a href="#">password?</a></span>
+            <span ng-show="signupon">Go to <a ng-click="accountCreate(signupon)">Login</a>  /  Forgot <a href="#">password?</a></span>
+        </div>
+    </div>
+</section>

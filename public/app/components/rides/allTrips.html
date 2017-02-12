@@ -1,0 +1,37 @@
+<section class="products">
+
+        <h2 class="trip-heading">Find a Ride</h2>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">From Location</label>
+            <div class="col-10">
+                <input class="form-control" type="text" ng-model="data.fromLocation" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label  class="col-2 col-form-label">To Location</label>
+            <div class="col-10">
+                <input class="form-control" type="text"  ng-model="data.toLocation">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Date</label>
+            <div class="col-10">
+                <input class="form-control" type="date" ng-model="data.date" id="example-date-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <button type="submit" class="btn btn-primary" ng-click="findAllTrips()">Find</button>
+        </div>
+
+    <aside>
+        <h2 class="trip-heading">Your Rides</h2>
+        <div class="form-check has-success list-rides" ng-repeat="trip in allTrips">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" id="checkboxSuccess" value="option1">
+                {{ trip.fromLocation}} - {{ trip.toLocation}} time {{ trip.date | date}}. Anyone looking for ride let me know.
+            </label>
+        </div>
+    </aside>
+
+
+</section>

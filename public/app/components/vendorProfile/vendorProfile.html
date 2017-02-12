@@ -1,0 +1,263 @@
+<!-- <data-ng-include src="'../app/components/partial/nav.tpl.html'"></data-ng-include> -->
+<!-- <div class="container"> -->
+    <!-- <div class="row"> -->
+      <div class="vendorProfile">
+        <!-- <div class="col-md-3">
+             <div class="sidebar-nav">
+                 <ul class="nav navbar-nav">
+                     <li class="hidden">
+                         <a class="page-scroll" href="#page-top"></a>
+                     </li>
+                     <li>
+                         <a class="page-scroll" du-smooth-scroll du-scrollspy href="#company-profile">
+                             <img src="../../../assets/images/company-profile.png" alt="" />Company Profile</a>
+                     </li>
+                     <li>
+                         <a class="page-scroll" du-smooth-scroll du-scrollspy href="#legalities"><img src="../../../assets/images/company-profile-1.png" alt="" />Legalities</a>
+                     </li>
+                     <li>
+                         <a class="page-scroll" du-smooth-scroll du-scrollspy href="#terms-cond"><img src="../../../assets/images/company-profile-2.png" alt="" />Terms and Conditions</a>
+                     </li>
+                     <li>
+                         <a class="page-scroll" du-smooth-scroll du-scrollspy href="#news-press"><img src="../../../assets/images/company-profile-3.png" alt="" />News/Press Release</a>
+                     </li>
+                 </ul>
+             </div>
+         </div> -->
+         <div class="scroll-content">
+             <!-- Intro Section -->
+             <form name="companyprofileForm" ng-submit="cmpDetails()">
+                 <section id="company-profile" class="company-profile">
+                     <div class="top-profile">
+                         <h3><img src="../../../assets/images/company-profile.png" alt="" />company Profile</h3>
+                         <div class="clearfix"></div>
+                     </div>
+                     <div class="company-left col-md-3">
+                         <img ng-src="{{companyProfile.logo}}">
+                         <div class="loadinggif" ng-show="loadingProgress"></div>
+                         <!-- <button type="file" class="inputfile" id="file" ngf-select="uploadLogoFiles($files)" accept="image/*" name="button">Upload Logo</button> -->
+                     </div>
+                     <div class="company-right col-md-9" ng-class="{'has-error' : companyprofileForm.companyName.$invalid && !companyprofileForm.companyName.$pristine}">
+                         <div class="form-group">
+                             <label for="Company Name">Company Name</label>
+                             <!-- <span class="profile-name" ng-show="cpedit">{{companyProfile.companyName}}</span> -->
+
+                             <span>{{companyProfile.companyName}}</span>
+
+                             <!-- <input type="text" ng-model="companyProfile.companyName" name="companyName" value="" class="form-control form-control-area" required> -->
+                         </div>
+                         <div class="form-group">
+                             <label for="About Company">About Company</label>
+
+                          <!--    <span class="profile-name" ng-show="cpedit">{{companyProfile.aboutCompany}}</span>
+                             <textarea name="aboutCompany" rows="5" ng-hide="cpedit" ng-model="companyProfile.aboutCompany" cols="" class="form-control form-control-area" required></textarea> -->
+
+                             <span>{{companyProfile.aboutCompany}}</span>
+                             <!-- <textarea name="aboutCompany" rows="5" ng-hide="cpedit" ng-model="companyProfile.aboutCompany" cols="" class="form-control form-control-area" required></textarea> -->
+
+
+                         </div>
+                         <label for="Address">Addresses</label>
+                         <div class="legalities-area" ng-repeat="x in companyProfile.addressArray">
+                             <div class="form-group">
+
+
+                                 <span class="profile-name">{{$index+1}}.{{x.address}}</span>
+
+                                <!--  <textarea name="name" rows="" cols="" ng-hide="cpedit" ng-model="x.address" class="form-control form-control-area form-area" name="address" required></textarea> -->
+
+                                 <!-- <textarea name="name" rows="" cols="" ng-hide="cpedit" ng-model="x.address" class="form-control form-control-area form-area"></textarea> -->
+
+
+                                 <!-- <span ng-if="!$last" ng-hide="cpedit" ng-click="removeAddress($index)">x</span> -->
+                                 <div class="clearfix"></div>
+                             </div>
+                             <div class="form-group address">
+                                 <!-- <button ng-if="$last" type="button" name="button" ng-hide="cpedit" ng-click="addAddress()">+ ADD ADDRESS</button> -->
+                             </div>
+                         </div>
+                         <!-- <p ng-hide="cpedit">If you have any branch or showrooms, -->
+                             <!-- <br/>add address by clicking on above button</p> -->
+                         <div class="form-group">
+                             <label for="Company Name">Email Address</label>
+
+                             <span class="profile-name">{{companyProfile.email}}</span>
+
+                             <!-- <input type="email" name="mail" ng-hide="cpedit" ng-model="companyProfile.email" value="" class="form-control form-control-area" required> -->
+
+
+                             <span>Not a valid email</span>
+                         </div>
+                         <div class="form-group">
+                             <label for="Company Name">Contact Number</label>
+
+                             <span class="profile-name">{{companyProfile.contactNo}}</span>
+
+                             <!-- <input type="text" name="contactno" value="" ng-pattern="/^\d{10}$/" ng-model="companyProfile.contactNo" class="form-control form-control-area" required> -->
+
+
+                             <span>Not a valid pattern</span>
+                         </div>
+                         <div class="form-group">
+                             <label for="Company Name">Customer Care Number</label>
+                             <span class="profile-name">{{companyProfile.cuscareNo}}</span>
+                             <!-- <input type="text" name="cuscareno1" ng-minlength="10" ng-maxlength="12" ng-hide="cpedit" ng-model="companyProfile.cuscareNo" value="" class="form-control form-control-area"> -->
+                             <span>min 10 numbers</span>
+                             <span>max 12 numbers</span>
+                         </div>
+                         <!-- <div class="form-buttons pull-right">
+                             <button type="submit" ng-hide="cpedit" name="button" ng-click="cpedit = false" class="save" ng-disabled="companyprofileForm.$invalid" ng-class="{'cancel':companyprofileForm.$invalid}" >Save</button>
+                             <button type="button" ng-hide="cpedit" name="button" ng-click ="cpedit = false; reloadfunction()" class="cancel">Cancel</button>
+                         </div> -->
+                     </div>
+                     <div class="clearfix"></div>
+                 </section>
+             </form>
+             <form name="addLegalitiesForm" ng-submit="cmpLegalaties()">
+                 <!-- Legalities Section -->
+                 <section id="legalities" class="legalities">
+                     <!-- <h3>Legalities</h3> -->
+                     <div class="top-profile">
+                         <h3><img src="../../../assets/images/company-profile-1.png" alt="" />legalities</h3>
+                         <!-- <span ng-click="legalEdit= false">Edit</span> -->
+                         <div class="clearfix"></div>
+                     </div>
+                     <div class="legalities-area" ng-repeat="y in legalities.legalities">
+                         <div class="col-sm-3 form-group">
+                             <!-- <label for="Title">Title</label> -->
+                             <strong>{{y.legaltitle}}</strong>
+                             <!-- <input ng-hide="legalEdit" type="text" ng-model="x.legaltitle" name="legal" class="form-control form-control-area" /> -->
+                         </div>
+                         <div class="col-sm-9 form-group">
+                             <!-- <label for="Details">Details</label> -->
+                             <p class="legal-title">{{y.details}}</p>
+                             <!-- <input ng-hide="legalEdit" type="text" ng-model="x.details" class="form-control form-control-area" /> -->
+                             <!-- <p class="add-rem  add-level">x</p> -->
+                             <!-- <p class="add-rem">+</p> -->
+                         </div>
+                     </div>
+                     <div class="col-sm-3 legalities-img-proof">
+                         <label for="Title">image proofs</label>
+                     </div>
+                     <div class="col-sm-9 form-group-vertical">
+                         <div class="upload-products-container">
+                             <ul class="products-container row">
+
+                                 <li class="col-xs-6 col-sm-2 image-product" ng-repeat-start="f in listItms.profile[1].imageproofs" ng-repeat-end>
+                                    <a class="img-vendorpage" href="{{f.oralink}}" style="background-image:url({{f.link}})"></a>
+                                    <!-- <a class="remove-product" ng-hide="legalEdit" ng-click="removeImgFiles($index)"><i class="icon-cancel-1"></i></a> -->
+
+                                </li>
+                             </ul>
+                             <!-- <div class="loadinggif" ng-show="loadingProgress"></div> -->
+                             <!-- <div class="products-upload-btn btn btn-default" ngf-select="uploadImageProof($files)" ng-hide="legalEdit" multiple accept="image/*"><i class="icon-up-circle"></i> Upload product images</div> -->
+                         </div>
+                     </div>
+                     <!-- <div class="form-buttons pull-right">
+                         <button ng-hide="legalEdit" type="submit" name="button" class="save" ng-click = "legalEdit = false" >Save</button>
+                         <button ng-hide="legalEdit" type="button" name="button" class="cancel" ng-click ="legalEdit = false; reloadfunction()">Cancel</button>
+                     </div> -->
+                     <div class="clearfix"></div>
+                 </section>
+             </form>
+             <!-- Terms abnd Conditions Section -->
+             <form name="termsForm" ng-submit="cmpTermsandCond()">
+                 <section id="terms-cond" class="terms-cond">
+                     <div class="top-profile">
+                         <h3><img src="../../../assets/images/company-profile-2.png" alt="" />TEARMS AND CONDITIONS</h3>
+                         <!-- <span ng-click="tcEdit = false">Edit</span> -->
+                         <div class="clearfix"></div>
+                     </div>
+                     <div class="col-sm-12 form-group">
+                         <label for="Details">Write your terms and conditions</label>
+
+                         <span>{{companyDetails.compDetails}}</span>
+
+                         <!-- <textarea ng-hide="tcEdit" name="name" rows="" cols="" ng-model="companyDetails.compDetails" class="form-control form-control-area" required></textarea> -->
+
+
+
+                     </div>
+                     <!-- <div class="form-buttons pull-right">
+                         <button type="submit" ng-hide="tcEdit" name="button" class="save" ng-click= "tcEdit = false"class="save" ng-disabled="termsForm.$invalid" ng-class="{'cancel':termsForm.$invalid}" >Save</button>
+                         <button type="button" ng-hide="tcEdit" name="button" class="cancel" ng-click ="tcEdit = false; reloadfunction()" >Cancel</button>
+                     </div> -->
+                     <div class="clearfix"></div>
+                 </section>
+             </form>
+             <!-- News / Press Section -->
+             <form name="newsPressForm" ng-submit="cmpNewDet()">
+                 <section id="news-press" class="news-press">
+                     <!-- <h3>News/Press Release</h3> -->
+                     <div class="top-profile">
+                         <h3><img src="../../../assets/images/company-profile-3.png" alt="" />news/press relese</h3>
+                         <!-- <span ng-click="newsEdit = false">Edit</span> -->
+                         <div class="clearfix"></div>
+                     </div>
+                     <div class="col-sm-12 form-group">
+                         <label for="Details">Title</label>
+                         <span>{{companyNewsandPress.newsTitle}}</span>
+                         <!-- <input ng-hide="newsEdit" type="text" name="title" value="" ng-model="companyNewsandPress.newsTitle" class="form-control form-control-area"> -->
+                     </div>
+                     <div class="col-sm-12 form-group">
+                         <label for="Details">Description</label>
+                         <span>{{companyNewsandPress.newsDescription}}
+</span>
+                         <!-- <textarea ng-hide="newsEdit" name="desc" rows="" cols="" ng-model="companyNewsandPress.newsDescription" class="form-control form-control-area"></textarea> -->
+                     </div>
+                     <!-- <div class="form-buttons pull-right">
+                         <button ng-hide="newsEdit" type="submit" name="button" class="save" ng-click ="newsEdit = false">Save</button>
+                         <button ng-hide="newsEdit" type="button" name="button" class="cancel" ng-click ="newsEdit = false; reloadfunction()">Cancel</button>
+                     </div> -->
+                     <div class="clearfix"></div>
+                 </section>
+             </form>
+         </div>
+      </div>
+    <!-- </div> -->
+
+    <div class="row">
+
+
+
+
+    <div class="container">
+    <section class="prd-items">
+
+        <div class="row">
+            <div infinite-scroll='productList.nextPage()' infinite-scroll-disabled='productList.busy' infinite-scroll-distance='1'>
+              {{productError}}
+                <div ng-repeat="product in listItms.products" class="col-md-3">
+         <product-model></product-model>
+     </div>
+                <div ng-show='productList.busy'>Loading data...</div>
+            </div>
+    </section>
+    </div>
+    <!-- <div class="row">
+>>>>>>> 8ee2cbcf793d232bd38c559692f422da1931df2d
+      <div class="col-md-3 col-sm-3 col-xs-2"   ng-repeat=" item in listItms.products">
+
+        <div class="block" style="cursor:pointer;" ng-click="prod_preview(item.id)">
+        <div class="imgHolder">
+          <img ng-src="{{item.images[0]}}" alt="" />
+        </div>
+        <div class="block-list">
+          <h4><span>{{ item.title | limitTo: 45 }}{{product.title.length > 45 ? '...' : ''}}</span></h4>
+          <p ng-class="discountExists(product.discount_percentage)? 'discounted':'regularCost'">
+            <span class="discountPrice">Rs. {{item.price}}</span>
+            <span class="discountedBlock">
+
+            </span>
+          </p>
+        </div>
+      </div>
+      </div>
+<<<<<<< HEAD
+
+
+    </div>
+=======
+    </div> -->
+
+<!-- </div> -->

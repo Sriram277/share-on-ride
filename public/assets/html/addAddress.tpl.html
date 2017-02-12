@@ -1,0 +1,104 @@
+<div class="">
+    <form name="NewAddressForm" ng-submit="NewAddressForm.$valid && saveAddress(newAddress)" novalidate>
+        <div class="popup">
+            <div class="head">
+                Enter a new shipping address
+            </div>
+            <hr>
+            <div class="col-md-5 ent-name">
+                Name
+            </div>
+            <div class="col-md-7 ent-value">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="newAddress.name" name="Name" required>
+                    <div class="errorText" ng-if="NewAddressForm.Name.$touched || NewAddressForm.$submitted" style="color:red">
+                        <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                        <span style="color:red" ng-show="NewAddressForm.Name.$error.required">Please Enter Name </span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-5 ent-name">
+                Pincode
+            </div>
+            <div class="col-md-7 ent-value">
+                <div class="form-group">
+                    <input type="number" class="form-control" ng-model="newAddress.pincode" name="pincode" required>
+                    <div class="errorText" ng-if="NewAddressForm.pincode.$touched || NewAddressForm.$submitted" style="color:red">
+                        <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                        <span style="color:red" ng-show="NewAddressForm.pincode.$error.required">Please Enter Pincode </span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-5 ent-name">
+                Address
+            </div>
+            <div class="col-md-7 ent-value">
+                <div class="form-group">
+                    <textarea rows="3" cols="18" class="form-control" ng-model="newAddress.address" style="resize:none" name="address" required>
+                    </textarea>
+                    <div class="errorText" ng-if="NewAddressForm.address.$touched || NewAddressForm.$submitted" style="color:red">
+                        <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                        <span style="color:red" ng-show="NewAddressForm.address.$error.required">Please Enter Address </span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-5 ent-name">
+                Landmark
+            </div>
+            <div class="col-md-7 ent-value">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="newAddress.landmark">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-5 ent-name">
+                State
+            </div>
+            <div class="col-md-7 ent-value">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="newAddress.state" name="state" required>
+                    <div class="errorText" ng-if="NewAddressForm.state.$touched || NewAddressForm.$submitted" style="color:red">
+                        <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                        <span style="color:red" ng-show="NewAddressForm.state.$error.required">Please Enter State</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-5 ent-name">
+                Country
+            </div>
+            <div class="col-md-7 ent-value">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="newAddress.country" name="country" required>
+                    <div class="errorText" ng-if="NewAddressForm.country.$touched || NewAddressForm.$submitted" style="color:red">
+                        <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                        <span style="color:red" ng-show="NewAddressForm.country.$error.required">Please Enter Country </span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-5 ent-name">
+                Phone Number
+            </div>
+            <div class="col-md-7 ent-value">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="newAddress.phone" ng-pattern="  /^[0-9/&quot&quot\\\]\[+()-]+$/" name="phNumber" required>
+                    <div class="errorText" ng-if="NewAddressForm.phNumber.$touched || NewAddressForm.$submitted" style="color:red">
+                        <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                        <span style="color:red" ng-show="NewAddressForm.phNumber.$error.pattern || NewAddressForm.phNumber.$error.required">Enter Valid Phone Number</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-5 ent-name">
+            </div>
+            <div class="col-md-7 pop-btn" align="center">
+                <button type="submit" class="btn btn-orange popbtn1">SAVE </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>

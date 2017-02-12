@@ -1,0 +1,10 @@
+<section class="products">
+    <h2 class="trip-heading">Your Rides</h2>
+    <div class="form-check has-success list-rides" ng-repeat="trip in allTrips">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" id="checkboxSuccess" value="option1">
+            {{ trip.fromLocation}} - {{ trip.toLocation}} time {{ trip.date | date}}. Anyone looking for ride let me know.
+        </label>
+    </div>
+
+</section>

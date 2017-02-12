@@ -1,0 +1,31 @@
+<nav ui-view="head" class="navbar navbar-default navbar-static-top"></nav>
+<div class="header-bottom">
+      <!--<div class="container">-->
+        <!--<form action="">-->
+          <!--<select ng-model="searchValue.category">-->
+            <!--<option value="All Categories">All Categories</option>-->
+            <!--<option value="Luma globe 120">Luma globe 120</option>-->
+            <!--<option value="Lefoq-500">Lefoq-500</option>-->
+            <!--<option value="Levofemy">Levofemy</option>-->
+          <!--</select>-->
+          <!--<div class="input-btn">-->
+          <!--<input type="text" name="searchValue" ng-model="searchValue.value"  >-->
+          <!--<div class="search-btn">-->
+          <!--<div class="alert alert-danger" role="alert">-->
+                <!--<a ng-click="searchSubmit(searchValue)" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>-->
+                  <!--&lt;!&ndash; <span class="sr-only">Error:</span> &ndash;&gt;-->
+                  <!--</div>-->
+                <!--</div>-->
+          <!--<div class="clearfix"></div>-->
+        <!--</div>-->
+        <!--<div class="clearfix"></div>-->
+      <!--</form>-->
+
+      <!--</div>-->
+</div>
+<div class="container-fluid">
+    <div class="" ui-view="submenu" ng-show="hasSubMenu"></div>
+    <div ui-view></div>
+</div>
+<footer ui-view="footer">
+</footer>
