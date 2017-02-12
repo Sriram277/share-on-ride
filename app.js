@@ -92,8 +92,8 @@ app.use(function(err, req, res, next) {
  * Listen on provided port, on all network interfaces.
  */
 
-app.listen(process.env.PORT || 5000, function () {
-    console.log( "Listening on 5000" );
+app.listen(process.env.PORT || 80, function () {
+    console.log( "Listening on 80" );
 });
 
 app.on('error', onError);
