@@ -1,113 +1,149 @@
 <div class="cart-load">
-<!-- Login Page -->
-<section class="login-page">
-    <div class="container">
-        <div class="login-main text-center" ng-hide="loadingProgress">
-            <figure>
-                <a href="#"><img src="assets/images/share-ride1.jpg" alt="" /></a>
-            </figure>
-            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit sed diam nonummy</p>
-            <div class="log-form  text-left">
-              <h4 ng-show="signupon"><span>Create Account</span></h4>
+    <!-- Login Page -->
+    <section class="login-page">
+        <div class="container">
+            <div class="login-main text-center" ng-hide="loadingProgress">
+                <figure>
+                    <a href="#"><img src="assets/images/share-ride1.jpg" alt=""/></a>
+                </figure>
+                <p>Find cars near you and share a ride with them</p>
+                <div class="log-form  text-left">
+                    <h4 ng-show="signupon"><span>Create Account</span></h4>
 
-                <form name="registerForm"  ng-submit="registerForm.$valid && registerWork(dataRegister)" novalidate>
-                    <div class="signup" ng-show="signupon">
-                        <div>
-                            <!--<input type="text" class="form-control" ng-model="dataRegister.firstName" placeholder="Name*" name="firstName" required>-->
-                            <!--<div class="errorText" ng-if="registerForm.firstName.$touched || registerForm.$submitted" style="color:red">-->
+                    <form name="registerForm" ng-submit="registerForm.$valid && registerWork(dataRegister)" novalidate>
+                        <div class="signup" ng-show="signupon">
+                            <div>
+                                <!--<input type="text" class="form-control" ng-model="dataRegister.firstName" placeholder="Name*" name="firstName" required>-->
+                                <!--<div class="errorText" ng-if="registerForm.firstName.$touched || registerForm.$submitted" style="color:red">-->
                                 <!--<span style="color:red" ng-show="registerForm.firstName.$error.required">Please Enter Name </span>-->
-                            <!--</div>-->
-                            <label class="radio-inline"><input type="radio"  ng-model="dataRegister.role"  name="optradio" value="driver">Driver</label>
-                            <label class="radio-inline"><input type="radio"  ng-model="dataRegister.role"  name="optradio" value="nondriver">Non-Driver</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" ng-model="dataRegister.firstName" placeholder="Name*" name="firstName" required>
-                            <div class="errorText" ng-if="registerForm.firstName.$touched || registerForm.$submitted" style="color:red">
-                               <span style="color:red" ng-show="registerForm.firstName.$error.required">Please Enter Name </span>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                        <input type="email" class="form-control" ng-model="dataRegister.email" name="signupemail" placeholder="Email*" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
-                        <div ng-show="registerForm.signupemail.$dirty && registerForm.signupemail.$invalid" class="errorText">
-                        <span style="color:red" ng-show="registerForm.signupemail.$error.pattern">Invalid email address.</span>
-                        </div>
-                        <div class="errorText" ng-if="registerForm.signupemail.$touched || registerForm.$submitted" style="color:red">
-                        <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
-                        <span style="color:red" ng-show="registerForm.signupemail.$error.required">Please Enter Email Address </span>
-                        </div>
+                                <!--</div>-->
+                                <label class="radio-inline"><input type="radio" ng-model="dataRegister.role"
+                                                                   name="optradio" value="driver">Driver</label>
+                                <label class="radio-inline"><input type="radio" ng-model="dataRegister.role"
+                                                                   name="optradio" value="nondriver">Non-Driver</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="dataRegister.firstName"
+                                       placeholder="Name*" name="firstName" required>
+                                <div class="errorText"
+                                     ng-if="registerForm.firstName.$touched || registerForm.$submitted"
+                                     style="color:red">
+                                    <span style="color:red" ng-show="registerForm.firstName.$error.required">Please Enter Name </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" ng-model="dataRegister.email"
+                                       name="signupemail" placeholder="Email*"
+                                       ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                                <div ng-show="registerForm.signupemail.$dirty && registerForm.signupemail.$invalid"
+                                     class="errorText">
+                                    <span style="color:red" ng-show="registerForm.signupemail.$error.pattern">Invalid email address.</span>
+                                </div>
+                                <div class="errorText"
+                                     ng-if="registerForm.signupemail.$touched || registerForm.$submitted"
+                                     style="color:red">
+                                    <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                                    <span style="color:red" ng-show="registerForm.signupemail.$error.required">Please Enter Email Address </span>
+                                </div>
 
-                        </div>
-                        <div class="form-group">
-                            <input type="number" class="form-control" ng-model="dataRegister.mobile" placeholder="Mobile*" name="phoneNumber" ng-pattern=" /^[(]{0,1}[0-9]{3}[)\.\- ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/" required/>
-                            <div class="errorText" ng-show="registerForm.phoneNumber.$error.pattern">
-                                <span style="color: #FF0000; font: 20px;">Please Enter 10 Digit Valid Phone Number  </span>
                             </div>
-                            <div class="errorText" ng-if="registerForm.phoneNumber.$touched || registerForm.$submitted" style="color:red">
-                                <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
-                                <span style="color:red" ng-show="registerForm.phoneNumber.$error.required">Please Enter 10 Digit Valid Phone Number </span>
+                            <div class="form-group">
+                                <input type="number" class="form-control" ng-model="dataRegister.mobile"
+                                       placeholder="Mobile*" name="phoneNumber"
+                                       ng-pattern=" /^[(]{0,1}[0-9]{3}[)\.\- ]{0,1}[0-9]{3}[\.\- ]{0,1}[0-9]{4}$/"
+                                       required/>
+                                <div class="errorText" ng-show="registerForm.phoneNumber.$error.pattern">
+                                    <span style="color: #FF0000; font: 20px;">Please Enter 10 Digit Valid Phone Number  </span>
+                                </div>
+                                <div class="errorText"
+                                     ng-if="registerForm.phoneNumber.$touched || registerForm.$submitted"
+                                     style="color:red">
+                                    <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                                    <span style="color:red" ng-show="registerForm.phoneNumber.$error.required">Please Enter 10 Digit Valid Phone Number </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" ng-model="dataRegister.address" placeholder="Address*" name="address" required>
-                            <div class="errorText" ng-if="registerForm.address.$touched || address.$submitted" style="color:red">
-                                <span style="color:red" ng-show="registerForm.address.$error.required">Please Enter Address </span>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="dataRegister.address"
+                                       placeholder="Address*" name="address" required>
+                                <div class="errorText" ng-if="registerForm.address.$touched || address.$submitted"
+                                     style="color:red">
+                                    <span style="color:red" ng-show="registerForm.address.$error.required">Please Enter Address </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" ng-model="dataRegister.city" placeholder="City*" name="city" required>
-                            <div class="errorText" ng-if="registerForm.city.$touched || city.$submitted" style="color:red">
-                                <span style="color:red" ng-show="registerForm.city.$error.required">Please Enter City </span>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="dataRegister.city" placeholder="City*"
+                                       name="city" required>
+                                <div class="errorText" ng-if="registerForm.city.$touched || city.$submitted"
+                                     style="color:red">
+                                    <span style="color:red" ng-show="registerForm.city.$error.required">Please Enter City </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" ng-model="dataRegister.zip" placeholder="Zip*" name="zip" required>
-                            <div class="errorText" ng-if="registerForm.zip.$touched || zip.$submitted" style="color:red">
-                                <span style="color:red" ng-show="registerForm.zip.$error.required">Please Enter ZIP </span>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="dataRegister.zip" placeholder="Zip*"
+                                       name="zip" required>
+                                <div class="errorText" ng-if="registerForm.zip.$touched || zip.$submitted"
+                                     style="color:red">
+                                    <span style="color:red"
+                                          ng-show="registerForm.zip.$error.required">Please Enter ZIP </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" ng-model="dataRegister.password"  placeholder="Enter Password minimum of 8-digits*" name="passwordlen" ng-minlength="8" required>
-                            <div class="errorText" ng-show="registerForm.passwordlen.$invalid && registerForm.passwordlen.$dirty && !registerForm.passwordlen.$error.required">
-                              <span style="color: #FF0000; font: 20px;">Please Enter the 8 digit password  </span>
-                            </div>
-                            <div class="errorText" ng-if="registerForm.passwordlen.$touched || registerForm.$submitted" style="color:red">
+                            <div class="form-group">
+                                <input type="password" class="form-control" ng-model="dataRegister.password"
+                                       placeholder="Enter Password minimum of 8-digits*" name="passwordlen"
+                                       ng-minlength="8" required>
+                                <div class="errorText"
+                                     ng-show="registerForm.passwordlen.$invalid && registerForm.passwordlen.$dirty && !registerForm.passwordlen.$error.required">
+                                    <span style="color: #FF0000; font: 20px;">Please Enter the 8 digit password  </span>
+                                </div>
+                                <div class="errorText"
+                                     ng-if="registerForm.passwordlen.$touched || registerForm.$submitted"
+                                     style="color:red">
 
-                              <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
-                               <span style="color:red" ng-show="registerForm.passwordlen.$error.required">Please Enter Password </span>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Confirm Password*" ng-model="dataRegister.repassword" name="rePassword" required>
-                            <div class="errorText">
-                              <span style="color:red" ng-bind="passwordCheck()"></span>
+                                    <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                                    <span style="color:red" ng-show="registerForm.passwordlen.$error.required">Please Enter Password </span>
+                                </div>
                             </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password*"
+                                       ng-model="dataRegister.repassword" name="rePassword" required>
+                                <div class="errorText">
+                                    <span style="color:red" ng-bind="passwordCheck()"></span>
+                                </div>
 
-                            <div class="errorText" ng-if="registerForm.rePassword.$touched || registerForm.$submitted" style="color:red">
-                              <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
-                               <span style="color:red" ng-show="registerForm.rePassword.$error.required">Please Re-Enter Password </span>
-                           </div>
-                        </div>
-                        <div class="form-group" ng-if="dataRegister.role === 'driver'">
-                            <input type="text" class="form-control" ng-model="dataRegister.driverLicense" placeholder="Driver License No*" name="driverLicense" required>
-                            <div class="errorText" ng-if="registerForm.driverLicense.$touched || driverLicense.$submitted" style="color:red">
-                                <span style="color:red" ng-show="registerForm.driverLicense.$error.required">Please Enter Driving License No </span>
+                                <div class="errorText"
+                                     ng-if="registerForm.rePassword.$touched || registerForm.$submitted"
+                                     style="color:red">
+                                    <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
+                                    <span style="color:red" ng-show="registerForm.rePassword.$error.required">Please Re-Enter Password </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group" ng-if="dataRegister.role === 'driver'">
-                            <input type="text" class="form-control" ng-model="dataRegister.carModel" placeholder="Car Model*" name="carModel" required>
-                            <div class="errorText" ng-if="registerForm.carModel.$touched || carModel.$submitted" style="color:red">
-                                <span style="color:red" ng-show="registerForm.carModel.$error.required">Please Enter Car Model </span>
+                            <div class="form-group" ng-if="dataRegister.role === 'driver'">
+                                <input type="text" class="form-control" ng-model="dataRegister.driverLicense"
+                                       placeholder="Driver License No*" name="driverLicense" required>
+                                <div class="errorText"
+                                     ng-if="registerForm.driverLicense.$touched || driverLicense.$submitted"
+                                     style="color:red">
+                                    <span style="color:red" ng-show="registerForm.driverLicense.$error.required">Please Enter Driving License No </span>
+                                </div>
                             </div>
+                            <div class="form-group" ng-if="dataRegister.role === 'driver'">
+                                <input type="text" class="form-control" ng-model="dataRegister.carModel"
+                                       placeholder="Car Model*" name="carModel" required>
+                                <div class="errorText" ng-if="registerForm.carModel.$touched || carModel.$submitted"
+                                     style="color:red">
+                                    <span style="color:red" ng-show="registerForm.carModel.$error.required">Please Enter Car Model </span>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <button type="submit" class="btn btn-default">Register</button>
+                            <button class="btn btn-default btn-clear" ng-click="registerClear()">Clear</button>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"></div>
-                        <button type="submit" class="btn btn-default">Register</button> <button class="btn btn-default btn-clear" ng-click="registerClear()">Clear</button>
-                        <div class="clearfix"></div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+                <span>Go to <a ui-sref="login">Login</a>  /  <a ui-sref="forgotPass">  Forgot password?</a></span>
             </div>
-            <span>Go to <a ui-sref="login">Login</a>  /  <a ui-sref="forgotPass">  Forgot password?</a></span>
         </div>
-    </div>
-</section>
- <div class="loadinggif" ng-show="loadingProgress"></div>
+    </section>
+    <div class="loadinggif" ng-show="loadingProgress"></div>
 </div>

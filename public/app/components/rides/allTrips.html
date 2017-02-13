@@ -25,12 +25,34 @@
 
     <aside>
         <h2 class="trip-heading">All Rides</h2>
-        <div class="form-check has-success list-rides" ng-repeat="trip in allTrips">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" id="checkboxSuccess" value="option1">
-              <span style="font-size: 20px;"> {{ trip.fromLocation}} - {{ trip.toLocation}} time {{ trip.date | date}}. Anyone looking for ride let me know.</span>
-            </label>
-        </div>
+        <!--<div class="form-check has-success list-rides" ng-repeat="trip in allTrips">-->
+            <!--<label class="form-check-label">-->
+                <!--<input type="radio" class="form-check-input" id="checkboxSuccess" value="option1">-->
+              <!--<span style="font-size: 20px;"> {{ trip.fromLocation}} - {{ trip.toLocation}} time {{ trip.date | date}}. Anyone looking for ride let me know.</span>-->
+            <!--</label>-->
+        <!--</div>-->
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Select</th>
+                <th>From Location</th>
+                <th>To Location</th>
+                <th>Time</th>
+                <th>Available</th>
+                <th>Contact Driver</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="trip in allTrips">
+                <td><input type="radio" class="form-check-input" id="checkboxSuccess" value="option1"></td>
+                <td>{{trip.fromLocation}}</td>
+                <td>{{trip.toLocation}}</td>
+                <td>{{trip.date}}</td>
+                <td>{{trip.available}}</td>
+                <td><button ng-click="contactDriver(trip)">contact</button></td>
+            </tr>
+            </tbody>
+        </table>
     </aside>
 
 

@@ -1,0 +1,29 @@
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td bgcolor="#ffffff">
+            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+                <!-- Body Content -->
+                <tr>
+                    <td style="font-family:'Verdana'; font-size:15px; color: #8C8B8B; line-height:20px; border: 1px solid #F0F0F0; padding: 50px 30px;">
+                        <h2 style="font-size: 21px; color: #ee486f; font-weight: normal;text-align: center;margin-top: 10px;">
+                            Hello <%= user.driverName %>, </h2>
+
+                        <p style="line-height: 20px;font-size: 14px;">I want to join a ride with you </p>
+                        <p>From: <%= user.fromLocation %>   To: <%= user.toLocation %></p>
+
+                        <p>My details:</p>
+                        <p> Name: <%= user.name %></p>
+                        <p>Email: <%= user.email %></p>
+                        <p>Mobile: <%= user.mobile %></p>
+
+
+                        <p style="text-align: center;margin-top: 24px;line-height: 20px;font-size: 14px;"> Thanks and welcome! </p>
+                    </td>
+
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>

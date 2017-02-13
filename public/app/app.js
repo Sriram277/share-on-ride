@@ -174,7 +174,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
     }), $urlRouterProvider.otherwise("/login");
 }), angular.module("shareonride").factory("globalVars", [ "$state", function($state, $ionicHistory, $location) {
     return {
-        baseURL: "http://ec2-35-167-154-204.us-west-2.compute.amazonaws.com/api",
+        baseURL: "http://localhost/api",
         config: {
             headers: {
                 "Content-Type": "application/json"
@@ -621,6 +621,18 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             $scope.errorText = error.error, $scope.err = error.data.error, $scope.loadingProgress = !1, 
             $scope.loginError = $scope.errorMessage12[$scope.err];
         });
+    }, $scope.contactDriver = function(trip) {
+        $scope.loadingProgress = !0, authService.mailToDriver($scope.userLogindata.userId, {
+            email: trip.user.email,
+            fromLocation: trip.fromLocation,
+            toLocation: trip.toLocation,
+            name: trip.user.name
+        }).then(function(result) {
+            alert("Successfully Sent mail");
+        }, function(error) {
+            $scope.errorText = error.error, $scope.err = error.data.error, $scope.loadingProgress = !1, 
+            $scope.loginError = $scope.errorMessage12[$scope.err];
+        });
     };
 } ]), angular.module("shareonride").controller("ProfileController", function($scope, ProfileFactory, ProfileService, $timeout, GlobalServiceResource, $state, globalVars, $stateParams) {
     $scope.loadingProgress = !1, $scope.disableval = !0, $scope.companyProfile = {}, 
@@ -764,6 +776,14 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             deferred.reject(error);
         }), deferred.promise;
     }
+    function mailToDriver(userId, data) {
+        var deferred = $q.defer();
+        return $http.post(globalVars.baseURL + "/contact/" + userId + "/driver", data, globalVars.config).then(function(result) {
+            deferred.resolve(result.data);
+        }, function(error) {
+            deferred.reject(error);
+        }), deferred.promise;
+    }
     var userInfo = {};
     return init(), {
         login: login,
@@ -771,7 +791,8 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
         getUserInfo: getUserInfo,
         findRides: findRides,
         findMyRides: findMyRides,
-        createRide: createRide
+        createRide: createRide,
+        mailToDriver: mailToDriver
     };
 } ]), angular.module("shareonride").factory("lookupService", [ "$http", "globalVars", function($http, globalVars) {
     var allServices = {};

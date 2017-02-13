@@ -13,5 +13,12 @@ module.exports = {
         } else {
             res.status(403).send({message:"Unauthorized to access"});
         }
+    },
+    EMAIL_CREDENTIALS: {
+        service: 'Gmail',
+        auth: {
+            user: 'kirru.crr@gmail.com',
+            pass: 'potharaju'
+        }
     }
 };

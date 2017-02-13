@@ -22,6 +22,7 @@ router.post('/create/:driverId/trip', rideController.createTrip);
 router.get('/list/all/trips', rideController.listAllTrips);
 router.get('/list/all/:driverId/trips', rideController.listMyTrips);
 router.post('/list/find/trips', rideController.findTrips);
+router.post('/contact/:userId/driver', rideController.contactDriver);
 
 
 
