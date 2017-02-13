@@ -57,9 +57,7 @@ module.exports = {
         User.findOne({username: req.body.identifier}, function (err, user) {
             if (user) {
                 user.comparePassword(req.body.password, function (err, isMatch) {
-                    console.log(err);
-                    console.log(isMatch);
-                    if (err) res.status(500).send({type: false, data: "Error occured: " + err});
+                    if (err) res.status(500).send({error: "error.username.password.mismatch"});
                     if (isMatch) {
                         var token = jwt.sign(user, "12scxzc321932", {
                             expiresIn: 1440 // expires in 24 hours
@@ -78,7 +76,7 @@ module.exports = {
                 });
 
             } else {
-                res.status(500).send({type: false, data: "Error occured: " + err});
+                res.status(500).send({error:"error.login.user.Invalid"});
             }
         });
     },
