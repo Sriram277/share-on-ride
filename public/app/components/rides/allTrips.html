@@ -47,7 +47,7 @@
                 <td><input type="radio" class="form-check-input" id="checkboxSuccess" value="option1"></td>
                 <td>{{trip.fromLocation}}</td>
                 <td>{{trip.toLocation}}</td>
-                <td>{{trip.date}}</td>
+                <td>{{trip.date| date:"MM/dd/yyyy 'at' h:mma"}}</td>
                 <td>{{trip.available}}</td>
                 <td><button ng-click="contactDriver(trip)">contact</button></td>
             </tr>

@@ -174,7 +174,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
     }), $urlRouterProvider.otherwise("/login");
 }), angular.module("shareonride").factory("globalVars", [ "$state", function($state, $ionicHistory, $location) {
     return {
-        baseURL: "http://localhost/api",
+        baseURL: "http://ec2-35-167-154-204.us-west-2.compute.amazonaws.com/api",
         config: {
             headers: {
                 "Content-Type": "application/json"
