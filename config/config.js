@@ -17,8 +17,8 @@ module.exports = {
     EMAIL_CREDENTIALS: {
         service: 'Gmail',
         auth: {
-            user: 'kirru.crr@gmail.com',
-            pass: 'potharaju'
+            user: 'shareonride@gmail.com',
+            pass: 'Shareonride@123'
         }
     }
 };
