@@ -10,7 +10,10 @@ var mongoose = require('mongoose');
 var Ride = mongoose.model('Ride');
 var User = mongoose.model('User');
 var nodemailer = require('nodemailer');
-var transporter_smtp = nodemailer.createTransport(config.EMAIL_CREDENTIALS);
+var transport = nodemailer.createTransport(config.EMAIL_CREDENTIALS);
+var smtpTransport = require('nodemailer-smtp-transport');
+
+var transporter_smtp = nodemailer.createTransport(smtpTransport(config.EMAIL_CREDENTIALS));
 
 module.exports = {
 
