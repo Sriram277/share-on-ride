@@ -613,8 +613,9 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
         });
     }
     $scope.userLogindata = authService.getUserInfo(), findMyTrips();
-} ]), angular.module("shareonride").controller("tripsController", [ "$scope", "authService", "$http", "$rootScope", "$state", "$location", function($scope, authService, $http, $rootScope, populateSale, $state, $location) {
-    $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, $scope.findAllTrips = function() {
+} ]), angular.module("shareonride").controller("tripsController", [ "$scope", "authService", "$http", "$rootScope", "$state", "$location", "ngDialog", function($scope, authService, $http, $rootScope, populateSale, $state, $location, ngDialog) {
+    $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, $scope.flag = !1, 
+    $scope.driverDetails = {}, $scope.findAllTrips = function() {
         $scope.loadingProgress = !0, authService.findRides($scope.data).then(function(result) {
             console.log(result), $scope.allTrips = result;
         }, function(error) {
@@ -622,17 +623,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             $scope.loginError = $scope.errorMessage12[$scope.err];
         });
     }, $scope.contactDriver = function(trip) {
-        $scope.loadingProgress = !0, authService.mailToDriver($scope.userLogindata.userId, {
-            email: trip.user.email,
-            fromLocation: trip.fromLocation,
-            toLocation: trip.toLocation,
-            name: trip.user.name
-        }).then(function(result) {
-            alert("Successfully Sent mail");
-        }, function(error) {
-            $scope.errorText = error.error, $scope.err = error.data.error, $scope.loadingProgress = !1, 
-            $scope.loginError = $scope.errorMessage12[$scope.err];
-        });
+        $scope.driverDetails = trip, $("#myModal").modal();
     };
 } ]), angular.module("shareonride").controller("ProfileController", function($scope, ProfileFactory, ProfileService, $timeout, GlobalServiceResource, $state, globalVars, $stateParams) {
     $scope.loadingProgress = !1, $scope.disableval = !0, $scope.companyProfile = {}, 

@@ -468,6 +468,10 @@ footer {
 .list-rides {
   padding: 15px 0px 15px 5px; }
 
+.btn-responsive {
+  white-space: normal !important;
+  word-wrap: break-word; }
+
 /* Forms */
 .addMoreDataBlock {
   position: relative;

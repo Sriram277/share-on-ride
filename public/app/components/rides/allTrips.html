@@ -1,4 +1,5 @@
-<section class="products">
+<section class="container">
+    <div>
 
         <h2 class="trip-heading">Find a Ride</h2>
         <div class="form-group row">
@@ -16,14 +17,14 @@
         <div class="form-group row">
             <label for="example-date-input" class="col-2 col-form-label">Date</label>
             <div class="col-10">
-                <input class="form-control" type="date" ng-model="data.date" id="example-date-input">
+                <input class="form-control" type="date" ng-model="data.date"  id="example-date-input">
             </div>
         </div>
         <div class="form-group row">
             <button type="submit" class="btn btn-primary" ng-click="findAllTrips()">Find</button>
         </div>
-
-    <aside>
+        </div>
+        <div>
         <h2 class="trip-heading">All Rides</h2>
         <!--<div class="form-check has-success list-rides" ng-repeat="trip in allTrips">-->
             <!--<label class="form-check-label">-->
@@ -34,26 +35,45 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Select</th>
                 <th>From Location</th>
                 <th>To Location</th>
                 <th>Time</th>
-                <th>Available</th>
+                <th>Available Seats</th>
                 <th>Contact Driver</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="trip in allTrips">
-                <td><input type="radio" class="form-check-input" id="checkboxSuccess" value="option1"></td>
                 <td>{{trip.fromLocation}}</td>
                 <td>{{trip.toLocation}}</td>
                 <td>{{trip.date| date:"MM/dd/yyyy 'at' h:mma"}}</td>
                 <td>{{trip.available}}</td>
-                <td><button ng-click="contactDriver(trip)">contact</button></td>
+                <td><button type="button" ng-click="contactDriver(trip)" class="btn btn-primary btn-md">Contact</button></td>
             </tr>
             </tbody>
         </table>
-    </aside>
-
+</div>
 
 </section>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Driver Deatails:</h4>
+            </div>
+            <div class="modal-body">
+               <p>Name:  {{ driverDetails.user.name}}</p>
+                <p>Email:  {{ driverDetails.user.email}}</p>
+                <p>Mobile:  {{ driverDetails.user.mobile}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
