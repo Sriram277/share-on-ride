@@ -29,7 +29,10 @@ module.exports = {
         if (!reqBody.date) {
             return res.status(400).send({error: "Date is required"});
         }
-        reqBody.date = new Date(req.body.date).setHours(0,0,0,0);
+        if (!reqBody.available) {
+            return res.status(400).send({error: "Availability seats are required"});
+        }
+        reqBody.date = new Date(req.body.date);
         reqBody.driverId = req.params.driverId;
         Ride.create(reqBody, function (err, ride) {
             if (err || !ride) {
@@ -63,27 +66,41 @@ module.exports = {
         });
     },
     findTrips: function (req, res){
+        var reqBody = req.body;
+        if (!reqBody.fromLocation || !reqBody.toLocation) {
+            return res.status(400).send({error: "Both Locations is required"});
+        }
+        if (!reqBody.date) {
+            return res.status(400).send({error: "Date is required"});
+        }
+
         var from = req.body.fromLocation;
         var to = req.body.toLocation;
-        var date = new Date(req.body.date).setHours(0,0,0,0);
-        console.log(from,to,date);
-        Ride.find({fromLocation: from, toLocation:to, date: date}).lean().exec(function(err, trips){
+        var start_date = new Date(req.body.date).setHours(0,0,0,0);
+        var end_date = new Date(req.body.date).setHours(23,59,59,999);
+        console.log(from,to,start_date,end_date);
+        Ride.find({fromLocation: from, toLocation:to,  date : {"$gte": start_date,
+            "$lte": end_date}}).lean().exec(function(err, trips){
             if (err) {
                 res.status(500).send(err);
             }
-            var count = 0;
-            async.forEach(trips, function (trip, cb) {
-                User.findOne({_id: trip.driverId}, function (err, user) {
-                    trips[count].user = {};
-                    trips[count].user.email = user.email;
-                    trips[count].user.mobile = user.mobile;
-                    trips[count].user.name = user.name;
-                    count++;
-                    if(trips.length === count){
-                        res.send(trips);
-                    }
+            if(trips.length > 0){
+                var count = 0;
+                async.forEach(trips, function (trip, cb) {
+                    User.findOne({_id: trip.driverId}, function (err, user) {
+                        trips[count].user = {};
+                        trips[count].user.email = user.email;
+                        trips[count].user.mobile = user.mobile;
+                        trips[count].user.name = user.name;
+                        count++;
+                        if(trips.length === count){
+                            res.send(trips);
+                        }
+                    });
                 });
-            });
+            }else{
+                res.send([]);
+            }
 
         });
     },
