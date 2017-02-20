@@ -1,10 +1,33 @@
-<section class="products">
-    <h2 class="trip-heading">Your Rides</h2>
-    <div class="form-check has-success list-rides" ng-repeat="trip in allTrips">
-        <label class="form-check-label">
-            <input type="radio" class="form-check-input" id="checkboxSuccess" value="option1">
-           <span style="font-size: 20px;">{{ trip.fromLocation}} - {{ trip.toLocation}} time {{ trip.date | date}}. Anyone looking for ride let me know.</span>
-        </label>
+<section class="container">
+    <!--<h2 class="trip-heading">Your Rides</h2>-->
+    <!--<div class="form-check has-success list-rides" ng-repeat="trip in allTrips">-->
+        <!--<label class="form-check-label">-->
+            <!--<input type="radio" class="form-check-input" id="checkboxSuccess" value="option1">-->
+           <!--<span style="font-size: 20px;">{{ trip.fromLocation}} - {{ trip.toLocation}} time {{ trip.date | date}}. Anyone looking for ride let me know.</span>-->
+        <!--</label>-->
+    <!--</div>-->
+    <div class="row" style="overflow-x:auto;">
+        <h2 class="trip-heading">Rides History</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>From Location</th>
+                <th>To Location</th>
+                <th>Time</th>
+                <th>Available Seats</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="allTrips.length ===0" colspan="4"><td>No rides yet!</td></tr>
+            <tr ng-repeat="trip in allTrips">
+                <td>{{trip.fromLocation}}</td>
+                <td>{{trip.toLocation}}</td>
+                <td>{{trip.date| date:"MM/dd/yyyy 'at' h:mma"}}</td>
+                <td ng-if="trip.available">{{trip.available}}</td>
+                <td ng-if="!trip.available">0</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 </section>

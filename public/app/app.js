@@ -155,14 +155,6 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             requireLogin: !1,
             loginStateReverse: !0
         }
-    }).state("main.about", {
-        url: "about",
-        templateUrl: "app/components/about/about.html",
-        controller: "about",
-        data: {
-            requireLogin: !0,
-            loginStateReverse: !0
-        }
     }).state("main.profile", {
         url: "profile",
         templateUrl: "app/components/profile/profile.html",
@@ -174,7 +166,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
     }), $urlRouterProvider.otherwise("/login");
 }), angular.module("shareonride").factory("globalVars", [ "$state", function($state, $ionicHistory, $location) {
     return {
-        baseURL: "http://ec2-35-167-154-204.us-west-2.compute.amazonaws.com/api",
+        baseURL: "http://localhost/api",
         config: {
             headers: {
                 "Content-Type": "application/json"
@@ -291,44 +283,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             };
         }
     };
-}), angular.module("shareonride").controller("about", [ "$scope", "$http", "$rootScope", "globalVars", function($scope, $http, $rootScope, globalVars) {
-    $rootScope.hasSubMenu = !0, $scope.dataLogin = [], $scope.addData = !0, $scope.toggleData = function(boolData) {
-        $scope.addData = !boolData;
-    }, $scope.proSummary = [ {
-        Company: "Gleed Tech",
-        Position: "UI Developer",
-        City: "Visakhapatnam",
-        Description: "",
-        TimePeriodFrom: "2015",
-        TimePeriodTo: "present"
-    }, {
-        Company: "Wipro",
-        Position: "Developer",
-        City: "Hyderabad",
-        Description: "",
-        TimePeriodFrom: "2011",
-        TimePeriodTo: "2015"
-    } ], $scope.proSummaryTemp = [ {
-        Company: "",
-        Position: "",
-        City: "",
-        Description: "",
-        TimePeriodFrom: "",
-        TimePeriodTo: ""
-    } ], $scope.addNewProSummary = function(dataNew) {
-        $scope.proSummary.push({
-            Company: dataNew.company,
-            Position: dataNew.position,
-            City: dataNew.City,
-            Description: "",
-            TimePeriodFrom: "",
-            TimePeriodTo: ""
-        }), $scope.toggleData($scope.addData);
-    }, $scope.removeProSummary = function() {
-        var lastItem = $scope.sellers.length - 1;
-        $scope.sellers.splice(lastItem);
-    };
-} ]), angular.module("shareonride").controller("changePasswordController", [ "$scope", "authService", "$http", "$rootScope", "$state", "globalVars", "ngDialog", "changePasswordService", function($scope, authService, $http, $rootScope, $state, globalVars, ngDialog, changePasswordService) {
+}), angular.module("shareonride").controller("changePasswordController", [ "$scope", "authService", "$http", "$rootScope", "$state", "globalVars", "ngDialog", "changePasswordService", function($scope, authService, $http, $rootScope, $state, globalVars, ngDialog, changePasswordService) {
     $scope.setPassword = function() {
         if ($scope.newPassword == $scope.confirmPassword) {
             if ($scope.newPassword.length < 8) return void ngDialog.open({
@@ -448,7 +403,9 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
         return $scope.pwd && $scope.repwd && $scope.pwd == $scope.repwd ? "" : $scope.pwd && $scope.repwd ? "password doesn't match" : void 0;
     };
 } ]), angular.module("shareonride").controller("frontController", [ "$scope", "authService", "$http", "$rootScope", "$state", "$location", function($scope, authService, $http, $rootScope, populateSale, $state, $location) {
-    $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, $scope.createRide = function() {
+    $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, flatpickr(".flatpickr", {
+        enableTime: !0
+    }), $scope.createRide = function() {
         $scope.loadingProgress = !0, authService.createRide($scope.userLogindata.userId, $scope.data).then(function(result) {
             alert("Successfully Created"), $scope.data = {}, console.log(result);
         }, function(error) {
@@ -613,9 +570,9 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
         });
     }
     $scope.userLogindata = authService.getUserInfo(), findMyTrips();
-} ]), angular.module("shareonride").controller("tripsController", [ "$scope", "authService", "$http", "$rootScope", "$state", "$location", "ngDialog", function($scope, authService, $http, $rootScope, populateSale, $state, $location, ngDialog) {
-    $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, $scope.flag = !1, 
-    $scope.driverDetails = {}, $scope.findAllTrips = function() {
+} ]), angular.module("shareonride").controller("tripsController", [ "$scope", "authService", "$http", "$rootScope", "$state", "$location", function($scope, authService, $http, $rootScope, populateSale, $state, $location) {
+    $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, $scope.driverDetails = {}, 
+    flatpickr(".flatpickr"), $scope.findAllTrips = function() {
         $scope.loadingProgress = !0, authService.findRides($scope.data).then(function(result) {
             console.log(result), $scope.allTrips = result;
         }, function(error) {
@@ -625,100 +582,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
     }, $scope.contactDriver = function(trip) {
         $scope.driverDetails = trip, $("#myModal").modal();
     };
-} ]), angular.module("shareonride").controller("ProfileController", function($scope, ProfileFactory, ProfileService, $timeout, GlobalServiceResource, $state, globalVars, $stateParams) {
-    $scope.loadingProgress = !1, $scope.disableval = !0, $scope.companyProfile = {}, 
-    $scope.cpedit = !0, $scope.legalEdit = !0, $scope.tcEdit = !0, $scope.newsEdit = !0, 
-    $scope.initImageCount = 0, $scope.imagesProofList = [], $scope.loadingProgress = !1, 
-    ProfileService.getProfileDetails($stateParams.id).success(function(response) {
-        $scope.listItms = response, console.log($scope.listItms);
-        for (var i = 0; i < $scope.listItms.profile.length; i++) "LEGALITIES" == $scope.listItms.profile[i].category && ($scope.legalities = $scope.listItms.profile[i]), 
-        "COMPANY_PROFILE" == $scope.listItms.profile[i].category && ($scope.companyProfile = $scope.listItms.profile[i], 
-        console.log("companyProfile"), console.log($scope.companyProfile)), "TERMS" == $scope.listItms.profile[i].category && ($scope.companyDetails = $scope.listItms.profile[i], 
-        console.log("companyDetails"), console.log($scope.companyDetails)), "NEWS" == $scope.listItms.profile[i].category && ($scope.companyNewsandPress = $scope.listItms.profile[i]);
-    }).error(function(error) {
-        console.log(error);
-    }), $scope.prod_preview = function(pid) {
-        $state.go("main.item_preview", {
-            sid: $stateParams.id,
-            pid: pid
-        });
-    };
-}), angular.module("shareonride").directive("duSmoothScroll", function(duScrollDuration, duScrollOffset, scrollContainerAPI) {
-    "use strict";
-    return {
-        link: function($scope, $element, $attr) {
-            $element.on("click", function(e) {
-                if ($attr.href && $attr.href.indexOf("#") !== -1 || "" !== $attr.duSmoothScroll) {
-                    $element.parents("ul").children("li").children("a").removeClass("active"), $element.addClass("active");
-                    var id = $attr.href ? $attr.href.replace(/.*(?=#[^\s]+$)/, "").substring(1) : $attr.duSmoothScroll, target = document.getElementById(id) || document.getElementsByName(id)[0];
-                    if (target && target.getBoundingClientRect) {
-                        e.stopPropagation && e.stopPropagation(), e.preventDefault && e.preventDefault();
-                        var offset = $attr.offset ? parseInt($attr.offset, 10) : duScrollOffset, duration = $attr.duration ? parseInt($attr.duration, 10) : duScrollDuration, container = scrollContainerAPI.getContainer($scope);
-                        container.duScrollToElement(angular.element(target), isNaN(offset) ? 0 : offset, isNaN(duration) ? 0 : duration);
-                    }
-                }
-            });
-        }
-    };
-}).directive("duScrollspy", function(spyAPI, duScrollOffset, $timeout, $rootScope) {
-    "use strict";
-    var Spy = function(targetElementOrId, $scope, $element, offset) {
-        angular.isElement(targetElementOrId) ? this.target = targetElementOrId : angular.isString(targetElementOrId) && (this.targetId = targetElementOrId), 
-        this.$scope = $scope, this.$element = $element, this.offset = offset;
-    };
-    return Spy.prototype.getTargetElement = function() {
-        return !this.target && this.targetId && (this.target = document.getElementById(this.targetId) || document.getElementsByName(this.targetId)[0]), 
-        this.target;
-    }, Spy.prototype.getTargetPosition = function() {
-        var target = this.getTargetElement();
-        if (target) return target.getBoundingClientRect();
-    }, Spy.prototype.flushTargetCache = function() {
-        this.targetId && (this.target = void 0);
-    }, {
-        link: function($scope, $element, $attr) {
-            var targetId, href = $attr.ngHref || $attr.href;
-            if (href && href.indexOf("#") !== -1 ? targetId = href.replace(/.*(?=#[^\s]+$)/, "").substring(1) : $attr.duScrollspy ? targetId = $attr.duScrollspy : $attr.duSmoothScroll && (targetId = $attr.duSmoothScroll), 
-            targetId) {
-                var timeoutPromise = $timeout(function() {
-                    var spy = new Spy(targetId, $scope, $element, -($attr.offset ? parseInt($attr.offset, 10) : duScrollOffset));
-                    spyAPI.addSpy(spy), $scope.$on("$locationChangeSuccess", spy.flushTargetCache.bind(spy));
-                    var deregisterOnStateChange = $rootScope.$on("$stateChangeSuccess", spy.flushTargetCache.bind(spy));
-                    $scope.$on("$destroy", function() {
-                        spyAPI.removeSpy(spy), deregisterOnStateChange();
-                    });
-                }, 0, !1);
-                $scope.$on("$destroy", function() {
-                    $timeout.cancel(timeoutPromise);
-                });
-            }
-        }
-    };
-}).directive("productModel", function() {
-    return {
-        restrict: "E",
-        templateUrl: "app/components/vendorProfile/productsDirective.html"
-    };
-}), angular.module("shareonride").factory("ProfileFactory", [ "$http", "globalVars", function($http, globalVars) {
-    var allServices = {};
-    return allServices;
-} ]).service("ProfileService", function($http, globalVars) {
-    this.addCmpDet = function(Formdata) {
-        var finalUrl = globalVars.baseURL + "/user/" + globalVars.userData.userId + "/createProfile";
-        return console.log(finalUrl), $http.post(finalUrl, Formdata);
-    }, this.addLegalities = function(Formdata) {
-        var finalUrl = globalVars.baseURL + "/user/" + globalVars.userData.userId + "/createProfile";
-        return $http.post(finalUrl, Formdata);
-    }, this.addCmpDetails = function(Formdata) {
-        var finalUrl = globalVars.baseURL + "/user/" + globalVars.userData.userId + "/createProfile";
-        return $http.post(finalUrl, Formdata);
-    }, this.addCmpNewsPress = function(Formdata) {
-        var finalUrl = globalVars.baseURL + "/user/" + globalVars.userData.userId + "/createProfile";
-        return $http.post(finalUrl, Formdata);
-    }, this.getProfileDetails = function(vId) {
-        var finalUrl = globalVars.baseURL + "/vendor/" + vId + "/profile";
-        return $http.get(finalUrl);
-    };
-}), angular.module("shareonride").controller("headControl", [ "$scope", "$http", "authService", "$rootScope", "$state", "globalVars", function($scope, $http, authService, $rootScope, $state, globalVars) {
+} ]), angular.module("shareonride").controller("headControl", [ "$scope", "$http", "authService", "$rootScope", "$state", "globalVars", function($scope, $http, authService, $rootScope, $state, globalVars) {
     $scope.userLogindata = authService.getUserInfo(), $scope.showDriver = !0, "NONDRIVER" === $scope.userLogindata.role && ($scope.showDriver = !1);
 } ]), angular.module("shareonride").factory("authService", [ "$http", "globalVars", "$q", "$window", function($http, globalVars, $q, $window) {
     function login(credentials) {
@@ -728,6 +592,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
         };
         return $http.post(globalVars.baseURL + "/user/login", data, globalVars.config).then(function(result) {
             userInfo = {
+                name: result.data.user.name,
                 role: result.data.user.role,
                 userId: result.data.user._id,
                 accessToken: result.data.tokenId

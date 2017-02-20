@@ -1,37 +1,31 @@
 <section class="container">
-    <div>
+    <div class="row">
 
         <h2 class="trip-heading">Find a Ride</h2>
-        <div class="form-group row">
+        <div class="form-group">
             <label class="col-2 col-form-label">From Location</label>
             <div class="col-10">
-                <input class="form-control" type="text" ng-model="data.fromLocation" >
+                <input class="form-control" type="text" ng-model="data.fromLocation">
             </div>
         </div>
-        <div class="form-group row">
-            <label  class="col-2 col-form-label">To Location</label>
+        <div class="form-group">
+            <label class="col-2 col-form-label">To Location</label>
             <div class="col-10">
-                <input class="form-control" type="text"  ng-model="data.toLocation">
+                <input class="form-control" type="text" ng-model="data.toLocation">
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group">
             <label for="example-date-input" class="col-2 col-form-label">Date</label>
             <div class="col-10">
-                <input class="form-control" type="date" ng-model="data.date"  id="example-date-input">
+                <input class="flatpickr form-control" type="text" ng-model="data.date" id="example-date-input">
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group">
             <button type="submit" class="btn btn-primary" ng-click="findAllTrips()">Find</button>
         </div>
-        </div>
-        <div>
+    </div>
+    <div class="row" style="overflow-x:auto;">
         <h2 class="trip-heading">All Rides</h2>
-        <!--<div class="form-check has-success list-rides" ng-repeat="trip in allTrips">-->
-            <!--<label class="form-check-label">-->
-                <!--<input type="radio" class="form-check-input" id="checkboxSuccess" value="option1">-->
-              <!--<span style="font-size: 20px;"> {{ trip.fromLocation}} - {{ trip.toLocation}} time {{ trip.date | date}}. Anyone looking for ride let me know.</span>-->
-            <!--</label>-->
-        <!--</div>-->
         <table class="table">
             <thead>
             <tr>
@@ -43,16 +37,19 @@
             </tr>
             </thead>
             <tbody>
+            <tr ng-if="allTrips.length ===0" colspan="4"><td>No rides! Search Properly</td></tr>
             <tr ng-repeat="trip in allTrips">
                 <td>{{trip.fromLocation}}</td>
                 <td>{{trip.toLocation}}</td>
                 <td>{{trip.date| date:"MM/dd/yyyy 'at' h:mma"}}</td>
                 <td>{{trip.available}}</td>
-                <td><button type="button" ng-click="contactDriver(trip)" class="btn btn-primary btn-md">Contact</button></td>
+                <td>
+                    <button type="button" ng-click="contactDriver(trip)" class="btn btn-primary btn-xs">Contact</button>
+                </td>
             </tr>
             </tbody>
         </table>
-</div>
+    </div>
 
 </section>
 <div class="modal fade" id="myModal" role="dialog">
@@ -65,9 +62,9 @@
                 <h4 class="modal-title">Driver Deatails:</h4>
             </div>
             <div class="modal-body">
-               <p>Name:  {{ driverDetails.user.name}}</p>
-                <p>Email:  {{ driverDetails.user.email}}</p>
-                <p>Mobile:  {{ driverDetails.user.mobile}}</p>
+                <p>Name: {{ driverDetails.user.name}}</p>
+                <p>Email: {{ driverDetails.user.email}}</p>
+                <p>Mobile: {{ driverDetails.user.mobile}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

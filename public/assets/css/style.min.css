@@ -1,3 +1,327 @@
+.navbar-nav .create-post {
+  display: inline; }
+  .navbar-nav .create-post a {
+    font-weight: 700;
+    border: 1px solid red;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 3px 10px 3px 20px;
+    color: #ed4221;
+    position: relative; }
+    .navbar-nav .create-post a:hover, .navbar-nav .create-post a:focus, .navbar-nav .create-post a.active {
+      color: #777;
+      text-decoration: none;
+      outline: 0; }
+    .navbar-nav .create-post a span {
+      position: absolute;
+      left: 6px;
+      top: -2px;
+      font-size: 18px; }
+
+.availability .cart-item .product-details .product-values.cursor-point {
+  cursor: pointer;
+  float: none; }
+
+.nav.navbar-nav.navbar-right.iconSub a:hover {
+  border: none; }
+
+.sidebar-nav ul.nav.navbar-nav > li > a:focus, .sidebar-nav ul.nav.navbar-nav > li > a.active {
+  background: #ed4221;
+  color: #fff; }
+  .sidebar-nav ul.nav.navbar-nav > li > a:focus img, .sidebar-nav ul.nav.navbar-nav > li > a.active img {
+    filter: brightness(100); }
+
+.scroll-content .legalities .form-group-vertical {
+  margin-bottom: 15px; }
+.scroll-content .legalities .legalities-img-proof {
+  margin-top: 0px; }
+
+.panel .panel-body .or-separetor {
+  text-align: center; }
+  .panel .panel-body .or-separetor span {
+    padding: 3px;
+    color: red;
+    font-size: 16px; }
+
+.marked-price-list .nav-tabsWrap {
+  text-align: center;
+  margin-top: 25px; }
+  .marked-price-list .nav-tabsWrap .nav.nav-tabs {
+    display: inline-block;
+    border: none; }
+    .marked-price-list .nav-tabsWrap .nav.nav-tabs li {
+      -moz-border-bottom-colors: none;
+      -moz-border-left-colors: none;
+      -moz-border-right-colors: none;
+      -moz-border-top-colors: none;
+      border-color: #98a0a6 -moz-use-text-color #98a0a6 #98a0a6;
+      border-image: none;
+      border-radius: 2px 0 0 2px;
+      border-style: solid none solid solid;
+      border-width: 1px 0 1px 1px;
+      cursor: pointer;
+      display: block;
+      float: left;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0;
+      position: relative;
+      text-transform: uppercase; }
+      .marked-price-list .nav-tabsWrap .nav.nav-tabs li a {
+        border: none;
+        border-radius: 0;
+        margin-right: 0; }
+      .marked-price-list .nav-tabsWrap .nav.nav-tabs li:last-child {
+        border-radius: 0 2px 2px 0;
+        border-right: 1px solid #98a0a6; }
+    .marked-price-list .nav-tabsWrap .nav.nav-tabs .active, .marked-price-list .nav-tabsWrap .nav.nav-tabs :focus {
+      background: #ed4221;
+      color: #fff; }
+
+.panel-body .product-body .form-group p {
+  padding: 0; }
+.panel-body .product-body .pull-back .btn.btn-orange {
+  margin-top: 50px; }
+
+.legalities .form-group-vertical .upload-products-container .products-upload-btn.btn.btn-default {
+  width: 95%; }
+
+.loading-bar, .loadinggif {
+  background-size: auto 100px;
+  height: 100%;
+  width: 100%; }
+
+.loaderBounds {
+  position: relative; }
+  .loaderBounds .loadinggif {
+    background: url("../../assets/images/ripple.svg") center center no-repeat;
+    background-size: auto 100px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(246, 246, 246, 0.5);
+    z-index: 99; }
+
+.loading-bar {
+  background: url("../../assets/images/ripple.svg") center center no-repeat;
+  background-size: auto 100px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0; }
+
+body, html {
+  height: 100%; }
+
+.form-group .form-label.form-group-vertical {
+  line-height: 40px; }
+
+.form-group .form-control.form-control-values {
+  float: left;
+  width: calc(100% - 80px);
+  border-right: none; }
+.form-group .form-control-btns {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  float: left;
+  width: calc(100% - 444px);
+  box-shadow: none; }
+
+.spreadPercentages {
+  position: relative;
+  height: 24px; }
+  .spreadPercentages li {
+    position: absolute;
+    font-weight: 700;
+    margin-left: 0;
+    width: 20px;
+    min-width: auto !important;
+    list-style: none;
+    top: 0px; }
+
+.panel.product-main .prod-details .cart-item {
+  border: none; }
+.panel.product-main .carousel-control {
+  background-image: none; }
+
+.availability .cart-item .product-details {
+  width: calc(100% - 40px); }
+  .availability .cart-item .product-details .product-values {
+    float: left; }
+    .availability .cart-item .product-details .product-values select.sizes {
+      border: 1px solid #b3b3b3; }
+    .availability .cart-item .product-details .product-values .sizes {
+      background: transparent none repeat scroll 0 0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      width: 60px; }
+  .availability .cart-item .product-details .soldquantity {
+    background: none;
+    width: 100%;
+    clear: both;
+    text-align: left; }
+
+.quantityall.notavailable, .soldquantity.notavailable {
+  color: #ed4221; }
+
+.soldquantity.available {
+  color: #47ba54; }
+
+.carousel-inner img {
+  width: 100%; }
+
+.log-form .login .btn.btn-default, .log-form .signup .btn.btn-default {
+  width: auto;
+  line-height: 10px;
+  float: left; }
+  .log-form .login .btn.btn-default a, .log-form .signup .btn.btn-default a {
+    color: #fff; }
+
+.btn-resend {
+  margin: 0 auto;
+  width: 70%; }
+
+.navbar-collapse.collapse .nav.navbar-nav .btn-createpost {
+  padding: 0 25px;
+  line-height: 25px;
+  margin: 25px 0; }
+  .navbar-collapse.collapse .nav.navbar-nav .btn-createpost .add-plus {
+    top: 5px; }
+
+a:focus {
+  outline: none; }
+
+.icon-cart-plus {
+  position: relative; }
+  .icon-cart-plus .cart-data {
+    background: #ed4221;
+    border-radius: 50%;
+    height: 16px;
+    line-height: 17px;
+    position: absolute;
+    right: -7px;
+    text-align: center;
+    top: 18px;
+    width: 16px;
+    color: #fff; }
+    .icon-cart-plus .cart-data:hover, .icon-cart-plus .cart-data:focus, .icon-cart-plus .cart-data:active {
+      color: #fff; }
+
+.btn-cancel {
+  width: 45%;
+  margin-left: 15px;
+  height: 47px; }
+
+.dropdown-toggle {
+  display: inline-block;
+  line-height: 50px;
+  padding-top: 12px; }
+  .dropdown-toggle .img-circle {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); }
+
+.navbar-right {
+  margin-right: 0; }
+
+.btn-continue {
+  margin: 25px 0; }
+
+.star-rating {
+  font-weight: 400;
+  margin-bottom: 25px; }
+  .star-rating .review-point span, .star-rating .review-point .starRate, .star-rating .itemPoint span, .star-rating .itemPoint .starRate {
+    background: #ed4221;
+    padding: 5px 5px;
+    border-radius: 5px;
+    color: white;
+    float: left; }
+    .star-rating .review-point span .star, .star-rating .review-point .starRate .star, .star-rating .itemPoint span .star, .star-rating .itemPoint .starRate .star {
+      float: none;
+      padding: 0; }
+  .star-rating .review-point p, .star-rating .itemPoint p {
+    float: left;
+    margin-left: 10px; }
+
+.prod-tab-cont .tab-content p {
+  font-weight: 400 !important; }
+
+.vendorProfile {
+  margin-top: 20px; }
+
+.legal-title {
+  padding: 0; }
+
+.form-label.form-variant {
+  margin-top: 15px; }
+
+.vatiant-list {
+  background: #3f51b5;
+  padding: 0 10px;
+  margin: 2px 1px;
+  width: auto;
+  height: 25px;
+  display: inline-block;
+  border-radius: 15px;
+  line-height: 23px;
+  color: rgba(255, 255, 255, 0.87); }
+
+.prd-items .prd-list-item.prd-list-control {
+  min-height: 330px; }
+
+.glyphicon.glyphicon-search {
+  cursor: default; }
+
+.add-comment {
+  width: 60%; }
+
+.form-group datepicker {
+  float: none; }
+
+.login-page .login-main .LoginErrorMessage {
+  color: #ed4221;
+  padding: 0px;
+  font-weight: 400;
+  font-size: 14px; }
+
+.btn-clear {
+  margin-left: 10px; }
+
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 16px; }
+
+.signup .datePicker.datepickerDob {
+  margin-bottom: 15px;
+  padding: 0; }
+
+.signup .datePicker, .addProduct .datePicker, .popup .datePicker, .bank-transfer .datePicker, .cart-item .datePicker {
+  padding-bottom: 15px; }
+.signup .product-tablets .errorText, .addProduct .product-tablets .errorText, .popup .product-tablets .errorText, .bank-transfer .product-tablets .errorText, .cart-item .product-tablets .errorText {
+  display: none; }
+.signup .form-group, .signup .datePicker, .signup .md-chip-var, .signup .loaderBounds, .signup .product-tablets.variantError, .addProduct .form-group, .addProduct .datePicker, .addProduct .md-chip-var, .addProduct .loaderBounds, .addProduct .product-tablets.variantError, .popup .form-group, .popup .datePicker, .popup .md-chip-var, .popup .loaderBounds, .popup .product-tablets.variantError, .bank-transfer .form-group, .bank-transfer .datePicker, .bank-transfer .md-chip-var, .bank-transfer .loaderBounds, .bank-transfer .product-tablets.variantError, .cart-item .form-group, .cart-item .datePicker, .cart-item .md-chip-var, .cart-item .loaderBounds, .cart-item .product-tablets.variantError {
+  position: relative; }
+  .signup .form-group .errorText, .signup .datePicker .errorText, .signup .md-chip-var .errorText, .signup .loaderBounds .errorText, .signup .product-tablets.variantError .errorText, .addProduct .form-group .errorText, .addProduct .datePicker .errorText, .addProduct .md-chip-var .errorText, .addProduct .loaderBounds .errorText, .addProduct .product-tablets.variantError .errorText, .popup .form-group .errorText, .popup .datePicker .errorText, .popup .md-chip-var .errorText, .popup .loaderBounds .errorText, .popup .product-tablets.variantError .errorText, .bank-transfer .form-group .errorText, .bank-transfer .datePicker .errorText, .bank-transfer .md-chip-var .errorText, .bank-transfer .loaderBounds .errorText, .bank-transfer .product-tablets.variantError .errorText, .cart-item .form-group .errorText, .cart-item .datePicker .errorText, .cart-item .md-chip-var .errorText, .cart-item .loaderBounds .errorText, .cart-item .product-tablets.variantError .errorText {
+    display: block; }
+    .signup .form-group .errorText span, .signup .datePicker .errorText span, .signup .md-chip-var .errorText span, .signup .loaderBounds .errorText span, .signup .product-tablets.variantError .errorText span, .addProduct .form-group .errorText span, .addProduct .datePicker .errorText span, .addProduct .md-chip-var .errorText span, .addProduct .loaderBounds .errorText span, .addProduct .product-tablets.variantError .errorText span, .popup .form-group .errorText span, .popup .datePicker .errorText span, .popup .md-chip-var .errorText span, .popup .loaderBounds .errorText span, .popup .product-tablets.variantError .errorText span, .bank-transfer .form-group .errorText span, .bank-transfer .datePicker .errorText span, .bank-transfer .md-chip-var .errorText span, .bank-transfer .loaderBounds .errorText span, .bank-transfer .product-tablets.variantError .errorText span, .cart-item .form-group .errorText span, .cart-item .datePicker .errorText span, .cart-item .md-chip-var .errorText span, .cart-item .loaderBounds .errorText span, .cart-item .product-tablets.variantError .errorText span {
+      position: absolute;
+      bottom: -7px;
+      right: 12px;
+      background: #fff;
+      padding: 0 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 12px; }
+    .signup .form-group .errorText .errorTop, .signup .datePicker .errorText .errorTop, .signup .md-chip-var .errorText .errorTop, .signup .loaderBounds .errorText .errorTop, .signup .product-tablets.variantError .errorText .errorTop, .addProduct .form-group .errorText .errorTop, .addProduct .datePicker .errorText .errorTop, .addProduct .md-chip-var .errorText .errorTop, .addProduct .loaderBounds .errorText .errorTop, .addProduct .product-tablets.variantError .errorText .errorTop, .popup .form-group .errorText .errorTop, .popup .datePicker .errorText .errorTop, .popup .md-chip-var .errorText .errorTop, .popup .loaderBounds .errorText .errorTop, .popup .product-tablets.variantError .errorText .errorTop, .bank-transfer .form-group .errorText .errorTop, .bank-transfer .datePicker .errorText .errorTop, .bank-transfer .md-chip-var .errorText .errorTop, .bank-transfer .loaderBounds .errorText .errorTop, .bank-transfer .product-tablets.variantError .errorText .errorTop, .cart-item .form-group .errorText .errorTop, .cart-item .datePicker .errorText .errorTop, .cart-item .md-chip-var .errorText .errorTop, .cart-item .loaderBounds .errorText .errorTop, .cart-item .product-tablets.variantError .errorText .errorTop {
+      top: 5px;
+      width: auto; }
+.signup datepicker, .addProduct datepicker, .popup datepicker, .bank-transfer datepicker, .cart-item datepicker {
+  float: left; }
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  background: rgba(236, 239, 241, 0.3); }
+
 body {
   font-family: 'Open Sans', sans-serif; }
 
@@ -158,6 +482,11 @@ h3.page-title {
   color: #fff; }
   .sidebar-nav ul.nav.navbar-nav > li > a:focus img, .sidebar-nav ul.nav.navbar-nav > li > a.active img {
     filter: brightness(100); }
+
+.hello_name {
+  padding: 22px 15px 0px 0px;
+  color: darkred;
+  font-size: 18px; }
 
 .slider {
   position: relative;
@@ -2878,329 +3207,5 @@ input[type="file"] {
 
 .onfailure {
   color: red; }
-
-.navbar-nav .create-post {
-  display: inline; }
-  .navbar-nav .create-post a {
-    font-weight: 700;
-    border: 1px solid red;
-    border-radius: 15px;
-    display: inline-block;
-    margin-top: 25px;
-    padding: 3px 10px 3px 20px;
-    color: #ed4221;
-    position: relative; }
-    .navbar-nav .create-post a:hover, .navbar-nav .create-post a:focus, .navbar-nav .create-post a.active {
-      color: #777;
-      text-decoration: none;
-      outline: 0; }
-    .navbar-nav .create-post a span {
-      position: absolute;
-      left: 6px;
-      top: -2px;
-      font-size: 18px; }
-
-.availability .cart-item .product-details .product-values.cursor-point {
-  cursor: pointer;
-  float: none; }
-
-.nav.navbar-nav.navbar-right.iconSub a:hover {
-  border: none; }
-
-.sidebar-nav ul.nav.navbar-nav > li > a:focus, .sidebar-nav ul.nav.navbar-nav > li > a.active {
-  background: #ed4221;
-  color: #fff; }
-  .sidebar-nav ul.nav.navbar-nav > li > a:focus img, .sidebar-nav ul.nav.navbar-nav > li > a.active img {
-    filter: brightness(100); }
-
-.scroll-content .legalities .form-group-vertical {
-  margin-bottom: 15px; }
-.scroll-content .legalities .legalities-img-proof {
-  margin-top: 0px; }
-
-.panel .panel-body .or-separetor {
-  text-align: center; }
-  .panel .panel-body .or-separetor span {
-    padding: 3px;
-    color: red;
-    font-size: 16px; }
-
-.marked-price-list .nav-tabsWrap {
-  text-align: center;
-  margin-top: 25px; }
-  .marked-price-list .nav-tabsWrap .nav.nav-tabs {
-    display: inline-block;
-    border: none; }
-    .marked-price-list .nav-tabsWrap .nav.nav-tabs li {
-      -moz-border-bottom-colors: none;
-      -moz-border-left-colors: none;
-      -moz-border-right-colors: none;
-      -moz-border-top-colors: none;
-      border-color: #98a0a6 -moz-use-text-color #98a0a6 #98a0a6;
-      border-image: none;
-      border-radius: 2px 0 0 2px;
-      border-style: solid none solid solid;
-      border-width: 1px 0 1px 1px;
-      cursor: pointer;
-      display: block;
-      float: left;
-      font-size: 12px;
-      font-weight: 700;
-      margin: 0;
-      position: relative;
-      text-transform: uppercase; }
-      .marked-price-list .nav-tabsWrap .nav.nav-tabs li a {
-        border: none;
-        border-radius: 0;
-        margin-right: 0; }
-      .marked-price-list .nav-tabsWrap .nav.nav-tabs li:last-child {
-        border-radius: 0 2px 2px 0;
-        border-right: 1px solid #98a0a6; }
-    .marked-price-list .nav-tabsWrap .nav.nav-tabs .active, .marked-price-list .nav-tabsWrap .nav.nav-tabs :focus {
-      background: #ed4221;
-      color: #fff; }
-
-.panel-body .product-body .form-group p {
-  padding: 0; }
-.panel-body .product-body .pull-back .btn.btn-orange {
-  margin-top: 50px; }
-
-.legalities .form-group-vertical .upload-products-container .products-upload-btn.btn.btn-default {
-  width: 95%; }
-
-.loading-bar, .loadinggif {
-  background-size: auto 100px;
-  height: 100%;
-  width: 100%; }
-
-.loaderBounds {
-  position: relative; }
-  .loaderBounds .loadinggif {
-    background: url("../../assets/images/ripple.svg") center center no-repeat;
-    background-size: auto 100px;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: rgba(246, 246, 246, 0.5);
-    z-index: 99; }
-
-.loading-bar {
-  background: url("../../assets/images/ripple.svg") center center no-repeat;
-  background-size: auto 100px;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0; }
-
-body, html {
-  height: 100%; }
-
-.form-group .form-label.form-group-vertical {
-  line-height: 40px; }
-
-.form-group .form-control.form-control-values {
-  float: left;
-  width: calc(100% - 80px);
-  border-right: none; }
-.form-group .form-control-btns {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  float: left;
-  width: calc(100% - 444px);
-  box-shadow: none; }
-
-.spreadPercentages {
-  position: relative;
-  height: 24px; }
-  .spreadPercentages li {
-    position: absolute;
-    font-weight: 700;
-    margin-left: 0;
-    width: 20px;
-    min-width: auto !important;
-    list-style: none;
-    top: 0px; }
-
-.panel.product-main .prod-details .cart-item {
-  border: none; }
-.panel.product-main .carousel-control {
-  background-image: none; }
-
-.availability .cart-item .product-details {
-  width: calc(100% - 40px); }
-  .availability .cart-item .product-details .product-values {
-    float: left; }
-    .availability .cart-item .product-details .product-values select.sizes {
-      border: 1px solid #b3b3b3; }
-    .availability .cart-item .product-details .product-values .sizes {
-      background: transparent none repeat scroll 0 0;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      width: 60px; }
-  .availability .cart-item .product-details .soldquantity {
-    background: none;
-    width: 100%;
-    clear: both;
-    text-align: left; }
-
-.quantityall.notavailable, .soldquantity.notavailable {
-  color: #ed4221; }
-
-.soldquantity.available {
-  color: #47ba54; }
-
-.carousel-inner img {
-  width: 100%; }
-
-.log-form .login .btn.btn-default, .log-form .signup .btn.btn-default {
-  width: auto;
-  line-height: 10px;
-  float: left; }
-  .log-form .login .btn.btn-default a, .log-form .signup .btn.btn-default a {
-    color: #fff; }
-
-.btn-resend {
-  margin: 0 auto;
-  width: 70%; }
-
-.navbar-collapse.collapse .nav.navbar-nav .btn-createpost {
-  padding: 0 25px;
-  line-height: 25px;
-  margin: 25px 0; }
-  .navbar-collapse.collapse .nav.navbar-nav .btn-createpost .add-plus {
-    top: 5px; }
-
-a:focus {
-  outline: none; }
-
-.icon-cart-plus {
-  position: relative; }
-  .icon-cart-plus .cart-data {
-    background: #ed4221;
-    border-radius: 50%;
-    height: 16px;
-    line-height: 17px;
-    position: absolute;
-    right: -7px;
-    text-align: center;
-    top: 18px;
-    width: 16px;
-    color: #fff; }
-    .icon-cart-plus .cart-data:hover, .icon-cart-plus .cart-data:focus, .icon-cart-plus .cart-data:active {
-      color: #fff; }
-
-.btn-cancel {
-  width: 45%;
-  margin-left: 15px;
-  height: 47px; }
-
-.dropdown-toggle {
-  display: inline-block;
-  line-height: 50px;
-  padding-top: 12px; }
-  .dropdown-toggle .img-circle {
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); }
-
-.navbar-right {
-  margin-right: 0; }
-
-.btn-continue {
-  margin: 25px 0; }
-
-.star-rating {
-  font-weight: 400;
-  margin-bottom: 25px; }
-  .star-rating .review-point span, .star-rating .review-point .starRate, .star-rating .itemPoint span, .star-rating .itemPoint .starRate {
-    background: #ed4221;
-    padding: 5px 5px;
-    border-radius: 5px;
-    color: white;
-    float: left; }
-    .star-rating .review-point span .star, .star-rating .review-point .starRate .star, .star-rating .itemPoint span .star, .star-rating .itemPoint .starRate .star {
-      float: none;
-      padding: 0; }
-  .star-rating .review-point p, .star-rating .itemPoint p {
-    float: left;
-    margin-left: 10px; }
-
-.prod-tab-cont .tab-content p {
-  font-weight: 400 !important; }
-
-.vendorProfile {
-  margin-top: 20px; }
-
-.legal-title {
-  padding: 0; }
-
-.form-label.form-variant {
-  margin-top: 15px; }
-
-.vatiant-list {
-  background: #3f51b5;
-  padding: 0 10px;
-  margin: 2px 1px;
-  width: auto;
-  height: 25px;
-  display: inline-block;
-  border-radius: 15px;
-  line-height: 23px;
-  color: rgba(255, 255, 255, 0.87); }
-
-.prd-items .prd-list-item.prd-list-control {
-  min-height: 330px; }
-
-.glyphicon.glyphicon-search {
-  cursor: default; }
-
-.add-comment {
-  width: 60%; }
-
-.form-group datepicker {
-  float: none; }
-
-.login-page .login-main .LoginErrorMessage {
-  color: #ed4221;
-  padding: 0px;
-  font-weight: 400;
-  font-size: 14px; }
-
-.btn-clear {
-  margin-left: 10px; }
-
-.navbar-nav > li > .dropdown-menu {
-  margin-top: 16px; }
-
-.signup .datePicker.datepickerDob {
-  margin-bottom: 15px;
-  padding: 0; }
-
-.signup .datePicker, .addProduct .datePicker, .popup .datePicker, .bank-transfer .datePicker, .cart-item .datePicker {
-  padding-bottom: 15px; }
-.signup .product-tablets .errorText, .addProduct .product-tablets .errorText, .popup .product-tablets .errorText, .bank-transfer .product-tablets .errorText, .cart-item .product-tablets .errorText {
-  display: none; }
-.signup .form-group, .signup .datePicker, .signup .md-chip-var, .signup .loaderBounds, .signup .product-tablets.variantError, .addProduct .form-group, .addProduct .datePicker, .addProduct .md-chip-var, .addProduct .loaderBounds, .addProduct .product-tablets.variantError, .popup .form-group, .popup .datePicker, .popup .md-chip-var, .popup .loaderBounds, .popup .product-tablets.variantError, .bank-transfer .form-group, .bank-transfer .datePicker, .bank-transfer .md-chip-var, .bank-transfer .loaderBounds, .bank-transfer .product-tablets.variantError, .cart-item .form-group, .cart-item .datePicker, .cart-item .md-chip-var, .cart-item .loaderBounds, .cart-item .product-tablets.variantError {
-  position: relative; }
-  .signup .form-group .errorText, .signup .datePicker .errorText, .signup .md-chip-var .errorText, .signup .loaderBounds .errorText, .signup .product-tablets.variantError .errorText, .addProduct .form-group .errorText, .addProduct .datePicker .errorText, .addProduct .md-chip-var .errorText, .addProduct .loaderBounds .errorText, .addProduct .product-tablets.variantError .errorText, .popup .form-group .errorText, .popup .datePicker .errorText, .popup .md-chip-var .errorText, .popup .loaderBounds .errorText, .popup .product-tablets.variantError .errorText, .bank-transfer .form-group .errorText, .bank-transfer .datePicker .errorText, .bank-transfer .md-chip-var .errorText, .bank-transfer .loaderBounds .errorText, .bank-transfer .product-tablets.variantError .errorText, .cart-item .form-group .errorText, .cart-item .datePicker .errorText, .cart-item .md-chip-var .errorText, .cart-item .loaderBounds .errorText, .cart-item .product-tablets.variantError .errorText {
-    display: block; }
-    .signup .form-group .errorText span, .signup .datePicker .errorText span, .signup .md-chip-var .errorText span, .signup .loaderBounds .errorText span, .signup .product-tablets.variantError .errorText span, .addProduct .form-group .errorText span, .addProduct .datePicker .errorText span, .addProduct .md-chip-var .errorText span, .addProduct .loaderBounds .errorText span, .addProduct .product-tablets.variantError .errorText span, .popup .form-group .errorText span, .popup .datePicker .errorText span, .popup .md-chip-var .errorText span, .popup .loaderBounds .errorText span, .popup .product-tablets.variantError .errorText span, .bank-transfer .form-group .errorText span, .bank-transfer .datePicker .errorText span, .bank-transfer .md-chip-var .errorText span, .bank-transfer .loaderBounds .errorText span, .bank-transfer .product-tablets.variantError .errorText span, .cart-item .form-group .errorText span, .cart-item .datePicker .errorText span, .cart-item .md-chip-var .errorText span, .cart-item .loaderBounds .errorText span, .cart-item .product-tablets.variantError .errorText span {
-      position: absolute;
-      bottom: -7px;
-      right: 12px;
-      background: #fff;
-      padding: 0 5px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 12px; }
-    .signup .form-group .errorText .errorTop, .signup .datePicker .errorText .errorTop, .signup .md-chip-var .errorText .errorTop, .signup .loaderBounds .errorText .errorTop, .signup .product-tablets.variantError .errorText .errorTop, .addProduct .form-group .errorText .errorTop, .addProduct .datePicker .errorText .errorTop, .addProduct .md-chip-var .errorText .errorTop, .addProduct .loaderBounds .errorText .errorTop, .addProduct .product-tablets.variantError .errorText .errorTop, .popup .form-group .errorText .errorTop, .popup .datePicker .errorText .errorTop, .popup .md-chip-var .errorText .errorTop, .popup .loaderBounds .errorText .errorTop, .popup .product-tablets.variantError .errorText .errorTop, .bank-transfer .form-group .errorText .errorTop, .bank-transfer .datePicker .errorText .errorTop, .bank-transfer .md-chip-var .errorText .errorTop, .bank-transfer .loaderBounds .errorText .errorTop, .bank-transfer .product-tablets.variantError .errorText .errorTop, .cart-item .form-group .errorText .errorTop, .cart-item .datePicker .errorText .errorTop, .cart-item .md-chip-var .errorText .errorTop, .cart-item .loaderBounds .errorText .errorTop, .cart-item .product-tablets.variantError .errorText .errorTop {
-      top: 5px;
-      width: auto; }
-.signup datepicker, .addProduct datepicker, .popup datepicker, .bank-transfer datepicker, .cart-item datepicker {
-  float: left; }
-
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  background: rgba(236, 239, 241, 0.3); }
 
 /*# sourceMappingURL=style.min.css.map */
