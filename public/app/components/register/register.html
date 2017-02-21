@@ -12,7 +12,7 @@
 
                     <form name="registerForm" ng-submit="registerForm.$valid && registerWork(dataRegister)" novalidate>
                         <div class="signup" ng-show="signupon">
-                            <div>
+                            <div class="role-margin">
                                 <!--<input type="text" class="form-control" ng-model="dataRegister.firstName" placeholder="Name*" name="firstName" required>-->
                                 <!--<div class="errorText" ng-if="registerForm.firstName.$touched || registerForm.$submitted" style="color:red">-->
                                 <!--<span style="color:red" ng-show="registerForm.firstName.$error.required">Please Enter Name </span>-->
@@ -113,18 +113,17 @@
                                 <div class="errorText"
                                      ng-if="registerForm.rePassword.$touched || registerForm.$submitted"
                                      style="color:red">
-                                    <!--  <p ng-show="  !addProductForm.titlename.$pristine">Please Enter Product Title </p> -->
                                     <span style="color:red" ng-show="registerForm.rePassword.$error.required">Please Re-Enter Password </span>
                                 </div>
                             </div>
                             <div class="form-group" ng-if="dataRegister.role === 'driver'">
                                 <input type="text" class="form-control" ng-model="dataRegister.driverLicense"
-                                       placeholder="Driver License No*" name="driverLicense" required>
-                                <div class="errorText"
-                                     ng-if="registerForm.driverLicense.$touched || driverLicense.$submitted"
-                                     style="color:red">
-                                    <span style="color:red" ng-show="registerForm.driverLicense.$error.required">Please Enter Driving License No </span>
-                                </div>
+                                       placeholder="Driver License No" >
+                                <!--<div class="errorText"-->
+                                     <!--ng-if="registerForm.driverLicense.$touched || driverLicense.$submitted"-->
+                                     <!--style="color:red">-->
+                                    <!--<span style="color:red" ng-show="registerForm.driverLicense.$error.required">Please Enter Driving License No </span>-->
+                                <!--</div>-->
                             </div>
                             <div class="form-group" ng-if="dataRegister.role === 'driver'">
                                 <input type="text" class="form-control" ng-model="dataRegister.carModel"

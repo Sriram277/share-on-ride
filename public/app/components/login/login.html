@@ -12,6 +12,12 @@
                 <form name="loginForm">
                     <div class="login" ng-hide="signupon">
                         <p class="LoginErrorMessage">{{loginError}}</p>
+                        <div class="role-margin">
+                            <label class="radio-inline"><input type="radio" ng-model="dataLogin.role"
+                                                               name="optradio" value="driver">Login as Driver</label>
+                            <label class="radio-inline"><input type="radio" ng-model="dataLogin.role"
+                                                               name="optradio" value="nondriver">Login as Non-Driver</label>
+                        </div>
                         <div class="form-group">
 
                             <input type="text" class="form-control" ng-model="dataLogin.email" name="loginEmail" id="email" placeholder="Enter Email" required>

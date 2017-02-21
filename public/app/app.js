@@ -442,8 +442,8 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
     }, saleValue;
 } ]), angular.module("shareonride").controller("login", [ "$scope", "authService", "$http", "$window", "$rootScope", "$q", "$state", "globalVars", "$location", "lookupService", "ngDialog", function($scope, authService, $http, $window, $rootScope, $q, $state, globalVars, $location, lookupService, ngDialog) {
     $scope.signupon = !1, $scope.dataLogin = [], $scope.dataRegister = [], $scope.genders = [ "Male", "Female" ], 
-    $scope.loadingProgress = !1, $rootScope.previousState = "", $scope.errorMessage12 = lookupService.lookUpError(), 
-    $scope.accountCreate = function(boolData) {
+    $scope.dataLogin.role = "driver", $scope.loadingProgress = !1, $rootScope.previousState = "", 
+    $scope.errorMessage12 = lookupService.lookUpError(), $scope.accountCreate = function(boolData) {
         $scope.signupon = !boolData, $scope.errorText = "";
     }, $scope.errorText = "", $scope.passwordCheck = function() {
         return $scope.dataRegister.password && $scope.dataRegister.repassword && $scope.dataRegister.password == $scope.dataRegister.repassword ? "" : $scope.dataRegister.password && $scope.dataRegister.repassword ? "password doesn't match" : void 0;
@@ -534,7 +534,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             console.log(data, status), registerSuccess = !0, $scope.signupon = !1, $scope.loadingProgress = !1, 
             $scope.loginstatus = 1, $scope.dataRegister = "", $state.go("resendEmail");
         }).error(function(data, status) {
-            console.log(data, status), $scope.errorText = data.message, $scope.loadingProgress = !1, 
+            console.log(data, status), $scope.errorText = data.data, $scope.loadingProgress = !1, 
             ngDialog.open({
                 template: "<p>" + $scope.errorText + "</p>",
                 plain: !0
@@ -588,7 +588,8 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
     function login(credentials) {
         var deferred = $q.defer(), data = {
             identifier: credentials.email,
-            password: credentials.password
+            password: credentials.password,
+            role: credentials.role
         };
         return $http.post(globalVars.baseURL + "/user/login", data, globalVars.config).then(function(result) {
             userInfo = {

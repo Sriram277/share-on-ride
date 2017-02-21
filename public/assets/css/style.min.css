@@ -1194,6 +1194,11 @@ button.btn-default {
   .login-verify .form-group p {
     font-size: 18px; }
 
+.role-margin {
+  margin-bottom: 15px;
+  color: #a01c1c;
+  font-size: 15px; }
+
 /*input.form-control, textarea.form-control{ height: 54px; border: 1px solid darken($colorWhite, 20%); padding: 0 10px; resize: none;}
 textarea.form-control{ height: 100px; line-height: auto; padding-top: 15px;}
 button.btn-default{ width: 100%; background: $primarycolor; height: 46px; line-height: 46px; padding: 0; color: $colorWhite; font-weight: 700; font-size: 15px;}
