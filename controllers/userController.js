@@ -54,6 +54,7 @@ module.exports = {
         if (!req.body.password) {
             return res.status(400).send({error: "Password is required"});
         }
+        var role = req.body.role.toUpperCase();
         User.findOne({username: req.body.identifier}, function (err, user) {
             if (user) {
                 user.comparePassword(req.body.password, function (err, isMatch) {
@@ -68,6 +69,7 @@ module.exports = {
                             user: user
                         };
                         record.user.password = undefined;
+                        record.user.role = role;
                         console.log(record);
                         res.status(200).send(record);
                     }else{
