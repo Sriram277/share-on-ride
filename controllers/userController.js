@@ -47,7 +47,6 @@ module.exports = {
     },
 
     login: function (req, res) {
-        console.log("login");
         if (!req.body.identifier) {
             return res.status(400).send({error: "Username is required"});
         }
@@ -63,14 +62,15 @@ module.exports = {
                         var token = jwt.sign(user, "12scxzc321932", {
                             expiresIn: 1440 // expires in 24 hours
                         });
-                        console.log(token);
                         var record = {
                             tokenId: token,
                             user: user
                         };
                         record.user.password = undefined;
+                        console.log(role);
+                        console.log(record.user.role);
                         record.user.role = role;
-                        console.log(record);
+                        console.log(record.user.role);
                         res.status(200).send(record);
                     }else{
                         res.status(500).send({error: "error.username.password.mismatch"});
