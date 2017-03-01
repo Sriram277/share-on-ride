@@ -583,7 +583,9 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             $scope.loginError = $scope.errorMessage12[$scope.err];
         }), $scope.flag = !0;
     }, $scope.updateTrip = function(trip) {
-        $scope.loadingProgress = !0, authService.updateRide($scope.data.id, $scope.data).then(function(result) {
+        $scope.loadingProgress = !0;
+        var tripId = trip._id;
+        delete trip._id, authService.updateRide(tripId, trip).then(function(result) {
             $("#editModal").modal("hide"), alert("Successfully updated");
         }, function(error) {
             $scope.errorText = error.error, $scope.err = error.data.error, $scope.loadingProgress = !1, 
@@ -670,6 +672,7 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
         }), deferred.promise;
     }
     function updateRide(tripId, data) {
+        console.log(tripId), console.log(data);
         var deferred = $q.defer();
         return $http.post(globalVars.baseURL + "/trip/" + tripId + "/update", data, globalVars.config).then(function(result) {
             deferred.resolve(result.data);
