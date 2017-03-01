@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 var ejs = require('ejs');
 var config = require('../config/config.js');
@@ -39,7 +38,7 @@ module.exports = {
                 res.status(500).send(err);
             }
             if (ride) {
-                res.status(200).send({status:true});
+                res.status(200).send({status: true});
             }
         });
 
@@ -65,7 +64,7 @@ module.exports = {
             }
         });
     },
-    findTrips: function (req, res){
+    findTrips: function (req, res) {
         var reqBody = req.body;
         if (!reqBody.fromLocation || !reqBody.toLocation) {
             return res.status(400).send({error: "Both Locations is required"});
@@ -76,15 +75,19 @@ module.exports = {
 
         var from = req.body.fromLocation;
         var to = req.body.toLocation;
-        var start_date = new Date(req.body.date).setHours(0,0,0,0);
-        var end_date = new Date(req.body.date).setHours(23,59,59,999);
-        console.log(from,to,start_date,end_date);
-        Ride.find({fromLocation: from, toLocation:to,  date : {"$gte": start_date,
-            "$lte": end_date}}).lean().exec(function(err, trips){
+        var start_date = new Date(req.body.date).setHours(0, 0, 0, 0);
+        var end_date = new Date(req.body.date).setHours(23, 59, 59, 999);
+        console.log(from, to, start_date, end_date);
+        Ride.find({
+            fromLocation: from, toLocation: to, date: {
+                "$gte": start_date,
+                "$lte": end_date
+            }
+        }).lean().exec(function (err, trips) {
             if (err) {
                 res.status(500).send(err);
             }
-            if(trips.length > 0){
+            if (trips.length > 0) {
                 var count = 0;
                 async.forEach(trips, function (trip, cb) {
                     User.findOne({_id: trip.driverId}, function (err, user) {
@@ -93,21 +96,21 @@ module.exports = {
                         trips[count].user.mobile = user.mobile;
                         trips[count].user.name = user.name;
                         count++;
-                        if(trips.length === count){
+                        if (trips.length === count) {
                             res.send(trips);
                         }
                     });
                 });
-            }else{
+            } else {
                 res.send([]);
             }
 
         });
     },
-    contactDriver : function(req, res){
+    contactDriver: function (req, res) {
         var driver = req.body;
-        User.findOne({_id:req.params.userId}, function (err, user) {
-            var temp = process.cwd()+ '/views/contactDriver.ejs';
+        User.findOne({_id: req.params.userId}, function (err, user) {
+            var temp = process.cwd() + '/views/contactDriver.ejs';
 
             fs.readFile(temp, 'utf8', function (err, file) {
                 if (err) return res.status(500).send(err);
@@ -125,11 +128,47 @@ module.exports = {
                     if (err) {
                         return res.status(500).send(err);
                     } else {
-                        res.status(200).send({success:true});
+                        res.status(200).send({success: true});
                     }
                 });
             });
         });
+    },
+    updateTrip: function (req, res) {
+        var reqBody = req.body;
+        Ride.update(req.params.tripId, reqBody, function (err, ride) {
+            if (err || !ride) {
+                res.status(500).send(err);
+            }
+            if (ride) {
+                res.status(200).send({status: true});
+            }
+        });
+
+    },
+    getOneTrip: function (req, res) {
+
+        Ride.findOne({_id:req.params.tripId}, function (err, trip) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            res.status(200).send(trip);
+
+        });
+    },
+    deleteTrip: function (req, res) {
+        Ride.findOne({ _id : req.params.tripId}, function (err, ride) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            ride.remove(function (err) {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                res.status(200).send({status: true});
+            });
+        });
+
     }
 
 

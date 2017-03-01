@@ -569,7 +569,27 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             $scope.loginError = $scope.errorMessage12[$scope.err];
         });
     }
-    $scope.userLogindata = authService.getUserInfo(), findMyTrips();
+    $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, findMyTrips(), 
+    $scope.editTrip = function(trip) {
+        $scope.data = trip, $("#editModal").modal();
+    }, $scope.deleteTrip = function(trip) {
+        $scope.deleteOne = trip, $("#deleteModal").modal();
+    }, $scope.confirmDelete = function(trip) {
+        $scope.loadingProgress = !0, authService.deleteRide(trip._id).then(function(result) {
+            $scope.allTrips.splice($scope.allTrips.indexOf(trip), 1), $("#deleteModal").modal("hide"), 
+            alert("Successfully Deleted");
+        }, function(error) {
+            $scope.errorText = error.error, $scope.err = error.data.error, $scope.loadingProgress = !1, 
+            $scope.loginError = $scope.errorMessage12[$scope.err];
+        }), $scope.flag = !0;
+    }, $scope.updateTrip = function(trip) {
+        $scope.loadingProgress = !0, authService.updateRide($scope.data.id, $scope.data).then(function(result) {
+            $("#editModal").modal("hide"), alert("Successfully updated");
+        }, function(error) {
+            $scope.errorText = error.error, $scope.err = error.data.error, $scope.loadingProgress = !1, 
+            $scope.loginError = $scope.errorMessage12[$scope.err];
+        }), $scope.flag = !0;
+    };
 } ]), angular.module("shareonride").controller("tripsController", [ "$scope", "authService", "$http", "$rootScope", "$state", "$location", function($scope, authService, $http, $rootScope, populateSale, $state, $location) {
     $scope.userLogindata = authService.getUserInfo(), $scope.data = {}, $scope.driverDetails = {}, 
     flatpickr(".flatpickr"), $scope.findAllTrips = function() {
@@ -641,6 +661,22 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
             deferred.reject(error);
         }), deferred.promise;
     }
+    function deleteRide(tripId) {
+        var deferred = $q.defer();
+        return $http.delete(globalVars.baseURL + "/trip/" + tripId + "/deleteOne").then(function(result) {
+            deferred.resolve(result.data);
+        }, function(error) {
+            deferred.reject(error);
+        }), deferred.promise;
+    }
+    function updateRide(tripId, data) {
+        var deferred = $q.defer();
+        return $http.post(globalVars.baseURL + "/trip/" + tripId + "/update", data, globalVars.config).then(function(result) {
+            deferred.resolve(result.data);
+        }, function(error) {
+            deferred.reject(error);
+        }), deferred.promise;
+    }
     var userInfo = {};
     return init(), {
         login: login,
@@ -649,7 +685,9 @@ angular.module("shareonride", [ "ui.router", "ngDialog", "720kb.datepicker", "ng
         findRides: findRides,
         findMyRides: findMyRides,
         createRide: createRide,
-        mailToDriver: mailToDriver
+        mailToDriver: mailToDriver,
+        deleteRide: deleteRide,
+        updateRide: updateRide
     };
 } ]), angular.module("shareonride").factory("lookupService", [ "$http", "globalVars", function($http, globalVars) {
     var allServices = {};
